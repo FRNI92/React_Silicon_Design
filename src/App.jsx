@@ -1,6 +1,6 @@
 // App.jsx
 import React from 'react';
-import Navbar from './Components/Navbar/Navbar.jsx';
+import './Assets/Css/css/styles.css'
 
 export default function App() {
   return (

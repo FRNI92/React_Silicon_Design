@@ -1,0 +1,950 @@
+:root {
+    --clr-purple-gradient: linear-gradient(to top, rgba(99, 102, 241, 0.1) 0%, rgba(218, 70, 239, 0.05) 42%, rgba(241, 244, 253, 0.07) 83%);
+    --clr-headlinetextblack: #131022; 
+    --clr-gray900: #0B0F19;
+    --clr-gray700: #565973;
+    --clr-gray800: #33354D;
+    --clr-gray600: #9397AD;
+    --clr-gray300: #E2E5F1;
+    --clr-gray100: #F3F6FF;
+
+    --clr-textgray500: #B4B7C9;
+    --clr-gray400: #D4D7E5;
+    --fontfamily: "manrope";
+    /* --backgroundclr: #0B0F19; */
+    --buttontext: white;
+    --new-Gradient: radial-gradient(circle, rgba(99,102,241,0.1) 0%, rgba(218,70,239,0.05) 42%, rgba(241,244,253,0.07) 83%);
+    --font-weight-800: 800;
+    --font-weight-600: 600;
+
+    --clr-primary-purple: #6366F1;
+    --clr-system-success: #22C55E;
+}
+
+    
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Manrope";
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.whole-website-size {
+    max-width: 1920px;
+
+}
+.manage-all-background{
+    background: var(--new-Gradient);
+}
+    header {
+    
+    font-family: "manrope";
+    margin: 5px;
+    padding: 1rem;
+
+}
+.navbar-container {
+    max-width: 1400px;
+
+    margin: 0 auto;
+    padding: 0 1rem;
+
+}
+.feature-text {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight:var(--font-weight-600);
+    color: var(--clr-gray800);
+}
+
+.feature-text:hover {
+    color: var(--clr-primary-purple);
+    font-size: 1rem;
+    text-decoration: underline;
+}
+
+#navbar {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left-nav p, .right-nav p {
+    margin: 0; 
+
+}
+
+
+.left-nav, .right-nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;    
+}
+
+
+.darkmodetext {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--clr-gray700);
+}
+
+
+.btn-primary {
+    background-color:var(--clr-primary-purple);
+    color: white;
+    border-radius: 8px;
+    padding: 10px 40px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+.btn-primary i {
+    margin-right: 1rem;
+
+}
+
+    /*Har gjort den här delen genom att kolla på videon Joakim Lindh laddade upp om Custom checkboxes.
+    https://www.youtube.com/watch?v=uSQaJb2rPcw&t=2950s&ab_channel=EPNSverigeAB-Utbildning */
+    .adaptive-btn {   
+    width: 60px;
+    height: 30px;
+    display: inline-block;
+    position: relative;
+
+
+    input[type="checkbox"] {
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+    input[type="checkbox"]:focus-visible + .slider {
+        outline: 1px solid rebeccapurple;
+        outline-offset: 2px;
+    }
+    .slider {
+        position:absolute;
+        inset: 0;
+        background-color: var(--clr-gray600);
+        border-radius: 100vw;
+        box-shadow: inset 0 0 4px rgb(143, 143, 143);
+        cursor: pointer;
+    }
+
+    
+
+    .slider::before {
+        content: '';
+        position:absolute;
+        margin-left: 3px;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        height: 80%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.356);
+
+        transition: all 400ms;
+    }
+
+    input[type="checkbox"]:checked ~ .slider::before {
+        left: calc(100% - 30px);
+        background-color: rgb(255, 255, 255)
+    }
+    input[type="checkbox"]:checked ~ .slider {
+        background-color: var(--clr-primary-purple);
+    }
+
+    
+}
+.btn-app-download {
+    background-color: var(--backgroundclr);
+    color:var(--buttontext);
+    border-radius: 8px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+
+}
+    /* Joakim Lindhs knapp. har gjort den här delen genom att följa hans videor */
+
+
+
+#hero {
+    max-width: 1400px;
+    
+}
+
+
+#main {
+    padding-top:5rem;
+    display: grid;
+    max-width: 1400px;
+    align-items: center;
+    justify-content: center;
+}
+#hero .container {
+    display: grid;
+    max-width: 1400px;
+    column-gap: 10rem;
+  
+    grid-template-columns: 500px 200px;
+    grid-template-rows: auto;
+    grid-template-areas: "headline images  " 
+                            "content images  ";
+}
+
+.img-mobile {
+    display: flex;
+    height: 95%;
+}
+.headline-hero {
+    
+    grid-area: headline;
+    text-wrap: left;
+    text-align: left;
+    font-family: "manrope"; 
+}
+
+.headline-hero p{
+    font-family: "manrope";
+    font-size: 1.125rem;
+    font-weight: 400 ;
+    color:var(--clr-gray700);
+    text-align: left;
+    margin-top: 2rem;
+}
+
+
+h1 {
+    text-align: left;
+    color: var(--clr-gray900);
+    font-size: 3.5rem;
+    font-weight: 800;
+    
+}
+
+.content {
+    grid-area: content;
+
+    display: flex;
+    text-align: left;
+
+}
+
+.buttons {
+    margin-top: 4rem;
+    justify-content: left;
+    display: flex;
+    gap: 1rem;
+    
+}
+.discovermore {
+    color: #565973;
+    display:flex;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight:400;
+    gap:1rem;
+    margin-top: 2rem;
+    text-align: center;
+    font-family: "manrope";
+    align-items: center;
+}
+.discovermore:hover {
+    color: var(--clr-primary-purple);
+    text-decoration: underline;
+}
+
+.btn-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px; 
+    height: 50px;
+    background-color: #FFFFFF; 
+    color: #33354D; 
+    border-radius: 50%; 
+
+    box-shadow: 1px 1px 5px rgba(151, 151, 151, 0.3);
+}
+
+.images { 
+    display: grid;
+    grid-area: images;
+    position: relative;
+
+}
+/* Har gjort en här delen genom att följa videon om brands och flexbox som Hans Mattin-Lassei har gjort.
+https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildning*/
+#brands{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#brands {
+    scroll-margin-top: -100px;
+    .container {
+        display:flex;
+        max-width: 1400px;
+        justify-content: center;
+        justify-content: space-between;
+        align-items: center;
+        gap:2rem
+    }
+}  
+
+.brand-box {
+    border: 1px solid #E2E5F1;
+    border-radius: 8px;
+    height: 100px;
+    width: 200px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+/*har gjort en här delen genom att följa videon om brands och flexbox */
+
+
+
+
+
+/* sida 2 */
+.App-features {
+    margin-top: 4rem;
+    padding: 4rem;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(2, auto);
+}
+.mobil-app-features {
+    grid-row: span 2;
+}
+
+.App-feature-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 600px;
+    margin-left: 20rem;
+    
+    font-size: 1.125rem;
+    font-family: var(--fontfamily);
+}
+.number-2-headline {
+    font-size: 2.5rem ;
+    font-weight: var(--font-weight-800);
+    color: var(--clr-gray900);
+}    
+
+.number-2-text {
+    margin-top: 1rem;
+    font-weight: 400;
+    color: var(--clr-gray600);
+
+}
+
+.Easy-payment-container {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    max-width: 100%;
+    grid-auto-rows: minmax(100px, auto);
+    margin-left: 20rem;
+}
+
+
+
+ .Payment-icon-1, .Easy-payment-icon-2, .Easy-payment-icon-3,
+  .Easy-payment-icon-4, .Easy-payment-icon-5, .Easy-payment-icon-6 {
+    display:flex;
+    width: 100%;
+    max-width: 300px;
+    gap: 1rem;
+}
+    
+.Easy-payment-icon-text-1, .Easy-payment-icon-text-2, .Easy-payment-icon-text-3, 
+.Easy-payment-icon-text-4, .Easy-payment-icon-text-5, .Easy-payment-icon-text-6 {
+    font-family: var(--fontfamily);
+    color: var(--clr-gray900);
+    font-weight: 800;
+    font-size: 1.25rem ;
+
+    & p{
+        font-size:1rem ;
+        color: var(--clr-gray700);
+        font-weight: 400;
+        margin-top: .5rem;
+        margin-bottom: 3rem;
+    }
+}
+
+
+
+
+
+
+.btn-square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px; 
+    height: 60px;
+    border-radius: 10px;
+    margin-right: 10px;
+
+}
+
+
+
+
+/* page 3 */
+.How-does-wrapper {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background-color: var(--clr-gray100);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+ .how-does-headline h1{
+    font-family: "Manrope", sans-serif;
+    font-size: 2.5rem;
+    color: var(--clr-gray900);
+    font-weight: 800;
+    margin-bottom: 4rem;
+}
+.mobiler {
+    display: flex;
+    justify-content: space-between;
+    gap: 5rem
+}
+
+.bottomtext {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: "manrope", sans-serif;
+        font-size: 1rem;
+        color: #333;
+        margin-top: 1rem;
+        gap: 1rem;
+    }
+.latest-transaction {
+    margin-top: 1rem;
+    color: var(--clr-gray900);
+    font-size: 1.5rem ;
+    font-weight: 800;
+}
+
+.latest-transaction-text{
+    text-align: center;
+    text-wrap: wrap;
+    max-width: 35rem;
+    font-weight: 400;
+    color: var(--clr-gray700);
+}
+
+
+/* sida4 */
+
+.btn-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px; 
+    height: 25px;
+    background-color: #ffffff; 
+    color: #6366F1; 
+    border: 2px solid #6366F1;
+    border-radius: 50%; 
+}
+    
+
+.Make-your-wrapper {   
+    display: grid;      
+    max-width: 1400px;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "headlinebox top-right-box"
+                            "bottom-left-container bottom-right-box";
+    background-color: white;
+}
+
+.headline-box{
+    padding-top: 3rem;
+    margin-left: 3rem;
+    grid-area: headlinebox;
+
+}
+
+.top-right-box {
+    grid-area: top-right-box;
+    display:flex;
+    justify-content: right;
+}
+
+.bottom-left-box {
+    margin-left: 3rem;
+    grid-area: bottom-left-container;
+}
+
+
+
+.recieve-payment-box {
+        grid-area: bottom-right-box;
+        display: grid;
+        margin-right: 2rem;
+        grid-template-columns: repeat(2, 1fr); 
+        text-wrap: balance;
+        font-weight: 400;
+        padding: 20px;
+        align-items: start;
+}
+    
+.recieve-headline-box {
+
+    grid-column: span 2;
+}
+.recieve-headline-text {
+    font-family: var(--fontfamily);
+    color: var(--clr-gray900);
+    font-weight: 900;
+    font-size: 2rem;
+}
+.Icon-recieve-1, .Icon-recieve-2 {
+    margin-bottom: -6em;
+}
+
+.Icon-text-1, .Icon-text-2 {
+    margin-top: 1rem;;
+    font-family: var(--fontfamily);
+    color: var(--clr-gray700);
+
+}
+
+.Icon-learn-btn{
+    margin-top: -4em;
+    grid-column: span 2;
+}
+
+
+.p4headline {
+    font-family: "manrope";
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--clr-gray900);
+    text-wrap:  balance;
+}
+.checkmark-andtext{
+    display: flex;
+    align-items: center;
+    font-family: var(--fontfamily);
+    color: var(--clr-gray700);
+    font-weight: 400;
+    gap: .5rem;
+    margin-top: 1.5rem;
+}
+.check-box-text {
+    margin: 0;
+
+}
+
+
+.btn-purple {
+    display:flex;
+    width: 195px;
+    margin-top: 3rem;
+    background-color: #6366F1;
+    color: white;
+    border-radius: 8px;
+    padding: 15px 20px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+.btn-purple i {
+    margin-left: 1rem;
+}
+
+
+
+/* sida 5*/
+.client-section {
+    margin: 0 auto;
+}
+
+.Clients-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "box-1 box-2";
+}
+#box-1 {
+    
+
+    grid-area: box-1;
+    font-family: "manrope";
+
+    padding-left:10rem;
+    text-wrap: balance;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #0B0F19;
+}
+
+#box-1 h2 {
+    margin-top: 4rem;
+    margin-left: 8rem;
+    margin-right: 10rem;
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-wrap: balance;
+}
+
+#box-2 {
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+    grid-area: box-2;
+    padding-right: 14rem;
+}
+
+
+
+.box {
+    background-color: #F3F6FF;
+}
+
+
+/* sida 6 */
+
+.FAQ-page {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    width: 80%;  
+    max-width: 1400px; 
+    margin: 0 auto;  
+    display:flex;
+    justify-content: space-between;
+}
+
+
+.FAQ-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3rem;
+}
+
+.FAQ-text h2{
+    max-width: 450px;
+    font-family: "manrope";
+    color: var(--clr-gray900);
+    font-weight: 800;
+    font-size: 2rem;
+    text-decoration: balance;
+}
+.FAQ-text p {
+    margin-top: 1rem;
+    max-width: 375px;
+    font-family: "manrope";
+    color: var(--clr-gray700);
+    font-size: 1.125rem;
+}
+
+
+.contact-container  {
+    display: flex;
+    gap:1rem;
+}
+
+.contact-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    padding-right: 0;
+    height: 165px;
+    width: 200px;
+    border: 2px solid var(--clr-gray300);
+    border-radius: 8px;
+    
+}
+.img-and-text p {
+    font-display: flex;
+    font-family: var(--fontfamily);
+    margin-top: 1rem;
+    font-size: 0.875rem ;
+    font-weight: 400;
+    color: var(--clr-gray700);
+}
+
+.contact-button {
+    display: flex;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    width: 160px; 
+    height: 30px;
+    font-family: "manrope";
+    font-weight: 600;
+    text-decoration: none;
+    justify-content: flex-start;
+    align-items: center;
+    color: var(--clr-primary-purple);
+    background-color:rgb(255, 255, 255);
+}
+
+.contact-button i {
+    margin-left: 1rem;
+}
+.contact-button-message {
+    display: flex;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    width: 160px; 
+    height: 30px;
+    font-family: "manrope";
+    font-weight: 600;
+    text-decoration: none;
+    justify-content: flex-start;
+    align-items: center;
+    color: var(--clr-system-success);
+    background-color:rgb(255, 255, 255);
+
+}
+.contact-button-message i {
+    margin-left: 1rem;
+}
+
+
+.drop-down-menu-container {
+    width: 50%;
+}
+
+/* följde https://www.w3schools.com/howto/howto_js_accordion.asp för att göra drop-down-menyerna.
+chatgpt guidade mig till vilka delar som skulle ändras för att få det mer likt Siliconvalley-designen. samt 
+hur man fick javascriptet att fungera. */
+.accordion-item {
+    
+    margin-bottom: .5rem; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.4s ease-in-out;
+}
+
+.accordion {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+  
+    background-color: #ffffff;
+
+    font-weight: 600;
+    font-family: "Manrope";
+    color: var(--clr-gray900);
+    font-size: 1rem;
+
+    border-radius: 8px;
+    cursor:pointer;
+    padding:18px;
+    border: none;
+    outline: none;
+
+}
+
+.active {
+    background-color: #ffffff; 
+    margin-bottom: 0;
+}
+
+
+.accordion:hover {
+    background-color: #6365f1da; 
+}
+
+.accordion:after {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    content: '\f078';
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 13px;
+    color: #777;
+
+ 
+    background-color: #F3F6FF;
+
+    border-radius: 50%;
+    padding: 10px;
+    width: 24px;
+    height: 24px;
+
+
+  }
+  
+  .active:after {
+    content: "\f077"; 
+    color: #ffffff;
+    background-color: #6366F1;
+  }
+
+.panel p {
+    font-family: "manrope";
+    font-weight: 400;
+    color: var(--clr-gray700);
+    padding: 1rem;
+    font-size: 0.875rem;
+}
+
+.panel {
+     width: 100%; 
+    background-color: rgb(255, 255, 255);
+    display: none;
+    overflow: hidden;
+
+    max-height: 0;  
+    opacity: 0;  
+    transition: max-height 0.6s ease-in-out, opacity 0.6s ease-in-out;
+
+}
+.panel.show {
+    max-height: 400px; 
+    opacity: 1;  
+
+
+    
+}
+/* följde https://www.w3schools.com/howto/howto_js_accordion.asp för att göra drop-down-menyerna.
+chatgpt guidade mig till vilka delar som skulle ändras för att få det mer likt Siliconvalley-designen. samt 
+hur man fick javascriptet att fungera. */
+
+.subscribe-container {
+    display: flex;
+    margin: auto;
+    border-radius: 8px;
+    max-width: 1400px;
+    padding: 5rem ;
+    padding-left: 10rem;
+    padding-right: 10rem;
+    font-family: "manrope";
+    background-color: #F3F6FF ;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+.bell-icon {
+    display: flex;
+    margin-right: 2rem;
+}
+.subscribe-text h4 {
+    color: #0B0F19;
+    font-weight: 800;
+    font-size: 1.5rem;
+    text-align: left;
+    text-wrap: balance;
+
+}
+
+.btn-subscribe-purple {
+    background-color: #6366F1;
+    color: white;
+    width: 150px;
+    height: 52px;
+    border-radius: 0 8px 8px 0;
+
+    display:flex;
+    column-gap: .5rem;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.input-wrapper {
+    position: relative; 
+    display: flex;
+    align-items: center;
+
+}
+.input-icon {
+    position: absolute;
+    left:70px; 
+    width: 20px; 
+    height: 20px; 
+    z-index: 1;
+}
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.form-input {
+    font-size: 1rem;
+    padding: .7em 3.5em;
+    border-radius: 8px 0px 0px 8px;
+    border: 1px solid var(--clr-gray400);
+    margin-left: 50px;
+    height:52px;
+    &:focus {
+        outline:none;
+        box-shadow: 0 0 5px var(--clr-primary-purple);
+    }
+}
+
+.form-input::placeholder {
+    color: var(--clr-textgray500)
+}
+
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+
+}
+
+
+footer .footer-container {
+    display:flex;
+
+    min-width: 275px;
+    max-width: 450px;
+
+    background-color: white;
+    font-family: "manrope";
+    color: #9397AD;
+
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding-top: 1.5rem;
+    padding-bottom: 4rem;
+}
+
+
