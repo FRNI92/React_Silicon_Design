@@ -16,30 +16,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <!-- <script>
-      chatGPT hjälpte mig med den här delen
-        var acc = document.getElementsByClassName("accordion");
-        var i;
-        
-        for (i = 0; i < acc.length; i++) {
-          acc[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.maxHeight) {
-              panel.style.maxHeight = null;
-              panel.style.opacity = "0";  
-              setTimeout(function() {
-                panel.style.display = "none";  
-              }, 600);  
-            } else {
-              panel.style.display = "block"; 
-              setTimeout(function() {
-                panel.style.maxHeight = panel.scrollHeight + "px"; 
-                panel.style.opacity = "1";  
-              }, 10); 
-            }
-          });
-        }
-        </script> -->
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
