@@ -19,6 +19,7 @@
 
     --clr-primary-purple: #6366F1;
     --clr-system-success: #22C55E;
+    --clr-system-error: #EF4444;
 }
 
     
@@ -918,6 +919,17 @@ hur man fick javascriptet att fungera. */
 .form-input::placeholder {
     color: var(--clr-textgray500)
 }
+.error-message {
+    position: absolute;
+    display: none;
+    color: var(--clr-system-error);
+    margin-top: 1rem;
+    margin-left: 3rem;
+  }
+  
+  .error-message.visible {
+    display: block;
+  }
 
 
 footer {
