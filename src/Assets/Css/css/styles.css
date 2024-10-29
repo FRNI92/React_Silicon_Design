@@ -594,8 +594,6 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
 
 
 
-
-
 /* sida 5*/
 .client-section {
     width: 100vw;
@@ -654,15 +652,6 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
     display: flex;
     gap: 1rem;
   }
-
-
-  
-
-
-
-
-
-
 
 
 
@@ -837,14 +826,13 @@ hur man fick javascriptet att fungera. */
 
   }
   
-  .active:after {
+  .accordion.active:after {
     content: "\f077"; 
     color: #ffffff;
     background-color: #6366F1;
   }
 
 .panel p {
-    font-family: "manrope";
     font-weight: 400;
     color: var(--clr-gray700);
     padding: 1rem;
@@ -852,13 +840,12 @@ hur man fick javascriptet att fungera. */
 }
 
 .panel {
-     width: 100%; 
+    width: 100%;
     background-color: rgb(255, 255, 255);
-    display: none;
     overflow: hidden;
-
-    max-height: 0;  
-    opacity: 0;  
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.6s ease-in-out, opacity 0.6s ease-in-out;
     transition: max-height 0.6s ease-in-out, opacity 0.6s ease-in-out;
 
 }
@@ -866,8 +853,6 @@ hur man fick javascriptet att fungera. */
     max-height: 400px; 
     opacity: 1;  
 
-
-    
 }
 /* följde https://www.w3schools.com/howto/howto_js_accordion.asp för att göra drop-down-menyerna.
 chatgpt guidade mig till vilka delar som skulle ändras för att få det mer likt Siliconvalley-designen. samt 
