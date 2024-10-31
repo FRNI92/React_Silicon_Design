@@ -7,13 +7,14 @@ import MakeYour from './MakeYour'
 import ClientSection from './ClientSection'
 import FAQPage from './FAQPage'
 import SubscribeContainer from './SubscribeContainer'
+import Footer from './Footer'
 
 
-const WholeWebsiteContainer = () => {
+const WholeWebsiteContainer = ({ isDarkMode, setIsDarkMode }) => {
   return (
     <>
       <section className="whole-website-size">
-        <HeaderMainContainer />
+        <HeaderMainContainer isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}  />
           <Brands />
           <AppFeatures />
           <HowDoes />
@@ -21,11 +22,12 @@ const WholeWebsiteContainer = () => {
           <ClientSection />
           <FAQPage />
           <SubscribeContainer />
+          <Footer />
      </section>
     </>
   )
 }
 
-export default WholeWebsiteContainer
+export default WholeWebsiteContainer;
     
 

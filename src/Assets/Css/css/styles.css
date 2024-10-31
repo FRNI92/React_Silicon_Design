@@ -1,41 +1,140 @@
 :root {
-    --clr-purple-gradient: linear-gradient(to top, rgba(99, 102, 241, 0.1) 0%, rgba(218, 70, 239, 0.05) 42%, rgba(241, 244, 253, 0.07) 83%);
-    --clr-headlinetextblack: #131022; 
+    --clr-purple-gradient: linear-gradient(180deg, rgba(99,102,241,0.1) 0%, rgba(218,70,239,0.05) 42%, rgba(204,217,255,0.07) 83%);
+    --clr-brand-primary-purple: #6366F1;
+    --clr-brand-gradient-purple: linear-gradient(0deg, rgba(99,102,241,1) 0%, rgba(139,92,246,1) 50%, rgba(217,70,239,1) 100%);
+    
+    /* grayscale */
     --clr-gray900: #0B0F19;
-    --clr-gray700: #565973;
     --clr-gray800: #33354D;
+    --clr-gray700: #565973;
     --clr-gray600: #9397AD;
+    --clr-gray500: #B4B7C9;
+    --clr-gray400: #D4D7E5;
     --clr-gray300: #E2E5F1;
+    --clr-gray200: #EFF2FC;
     --clr-gray100: #F3F6FF;
     --clr-white: #FFFFFF;
 
-
-    --clr-textgray500: #B4B7C9;
-    --clr-gray400: #D4D7E5;
+    --clr-background-gray900: #0B0F19;
+    --clr-background-gray800: #33354D;
+    --clr-background-gray700: #565973;
+    --clr-background-gray600: #9397AD;
+    --clr-background-gray500: #B4B7C9;
+    --clr-background-gray400: #D4D7E5;
+    --clr-background-gray300: #E2E5F1;
+    --clr-background-gray200: #EFF2FC;
+    --clr-background-gray100: #F3F6FF;
+    --clr-background-white: #FFFFFF;
+    
     --fontfamily: "manrope";
-    /* --backgroundclr: #0B0F19; */
-    --buttontext: white;
     --new-Gradient: radial-gradient(circle, rgba(99,102,241,0.1) 0%, rgba(218,70,239,0.05) 42%, rgba(241,244,253,0.07) 83%);
     --font-weight-800: 800;
     --font-weight-600: 600;
 
-    --clr-primary-purple: #6366F1;
+
+    /* header */
+    --feature-text-hover: linear-gradient(0deg, rgba(99,102,241,1) 0%, rgba(139,92,246,1) 50%, rgba(217,70,239,1) 100%); 
+
+    /* specifika färger */
+    --clr-client: #000000;
+    --three-phones-background: #F3F6FF;
+    --clr-subscribe-text: #0B0F19; 
+    --clr-contact-box: #E2E5F1;
+    --clr-accordion-after: #33354D;
+    --arrow-accordion-before: #33354D;
+    --review-card-background: #ffffff;
+    --review-card-author: #0B0F19;
+    --review-container-background: #F3F6FF;
+    --accordion-closed: #ffffff;
+    --arrow-background: #F3F6FF;
+    --accordion-drop:#ffffff;
+    --accordion-drop-text:#565973;
+    --subscribe-container:  #F3F6FF;
+    /* --review-card-text: #ffffff; */
+    /* system */
+    --clr-system-info: #4C82F7;
     --clr-system-success: #22C55E;
     --clr-system-error: #EF4444;
-    --clir-systemwarning: #FFBA08;
+    --clr-systemwarning: #FFBA08;
+}
+
+[dark-theme="dark"] {
+    --clr-purple-gradient: linear-gradient(180deg, rgba(99,102,241,0.1) 0%, rgba(218,70,239,0.05) 42%, rgba(204,217,255,0.07) 83%);
+    --clr-brand-primary-purple: #6366F1;
+    --clr-brand-gradient-purple: linear-gradient(0deg, rgba(99,102,241,1) 0%, rgba(139,92,246,1) 50%, rgba(217,70,239,1) 100%);
+    
+    --clr-black-background: #000000;
+    /* darkmodefärger */
+    --clr-gray900: #ffffff;
+    --clr-gray800: #ffffff;
+    --clr-gray700: #565973;
+    --clr-gray600: #ffffff;
+    --clr-gray500: #B4B7C9;
+    --clr-gray400: #ffffff;
+    --clr-gray300: #ffffff;
+    --clr-gray200: #ffffff;
+    /* --clr-gray100: #ffffff; */
+
+    /* dark-background */
+    --clr-background-gray900: #0B0F19;
+    --clr-background-gray800: #33354D;
+    --clr-background-gray700: #565973;
+    --clr-background-gray600: #9397AD;
+    --clr-background-gray500: #B4B7C9;
+    --clr-background-gray400: #D4D7E5;
+    --clr-background-gray300: #e2e5f1;
+    --clr-background-gray200: #EFF2FC;
+    --clr-background-gray100: #f3f6ff04; 
+    /* gray100 får black */
+    --clr-background-white: #000000;
+
+    --fontfamily: "manrope";
+    --new-Gradient: radial-gradient(circle, rgba(99,102,241,0.1) 0%, rgba(218,70,239,0.05) 42%, rgba(241,244,253,0.07) 83%);
+    --font-weight-800: 800;
+    --font-weight-600: 600;
+    
+    /* header */
+    --feature-text-hover: #ffffff; 
+
+
+    /* specifika färger */
+    --clr-client: #ffffff;
+    --three-phones-background: #1B1B2F;
+    --clr-subscribe-text: #ffffff;
+    --clr-contact-box: #33354D; 
+    --clr-accordion-after: #F3F6FF;
+    --arrow-accordion-before: #ffffff;
+    --review-container-background: #1B1B2F;
+    --review-card-background: #3939419d;
+    --review-card-text: #969aaa;
+    --review-card-author: #ffffff;
+    --accordion-closed: #3939419d;
+    --arrow-background: #30343f;
+    --accordion-drop:#3939419d;
+    --accordion-drop-text:#d1d1db9d;
+    --subscribe-container:  #1B1B2F;
+    
+
+    /* system */
+    --clr-system-info: #4C82F7;
+    --clr-system-success: #22C55E;
+    --clr-system-error: #EF4444;
+    --clr-systemwarning: #FFBA08;
 }
 
     
-
-
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+p {
+    color: red;
+}
 body {
     font-family: var(--fontfamily);
+    background-color: var(--clr-black-background);
     width: 100%;
     display:flex;
     justify-content: center;
@@ -46,7 +145,7 @@ body {
 
 }
 .manage-all-background{
-    background: var(--new-Gradient);
+    background: var(--clr-purple-gradient);
 }
     header {
     
@@ -70,7 +169,7 @@ body {
 }
 
 .feature-text:hover {
-    color: var(--clr-primary-purple);
+    color: var(--feature-text-hover);
     font-size: 1rem;
     text-decoration: underline;
 }
@@ -102,8 +201,8 @@ body {
 
 
 .btn-primary {
-    background-color:var(--clr-primary-purple);
-    color: white;
+    background-color:var(--clr-brand-primary-purple);
+    color: var(--clr-white);
     border-radius: 8px;
     padding: 10px 40px;
     display:flex;
@@ -131,13 +230,13 @@ body {
         opacity: 0;
     }
     input[type="checkbox"]:focus-visible + .slider {
-        outline: 1px solid rebeccapurple;
+        outline: 1px solid var(--clr-brand-primary-purple);
         outline-offset: 2px;
     }
     .slider {
         position:absolute;
         inset: 0;
-        background-color: var(--clr-gray600);
+        background-color: var(--clr-background-gray600);
         border-radius: 100vw;
         box-shadow: inset 0 0 4px rgb(143, 143, 143);
         cursor: pointer;
@@ -166,14 +265,14 @@ body {
         background-color: rgb(255, 255, 255)
     }
     input[type="checkbox"]:checked ~ .slider {
-        background-color: var(--clr-primary-purple);
+        background-color: var(--clr-brand-primary-purple);
     }
 
     
 }
 .btn-app-download {
-    background-color: var(--backgroundclr);
-    color:var(--buttontext);
+    background-color: var(--clr-background-gray100);
+    color: var(--clr-gray200);
     border-radius: 8px;
     display:flex;
     justify-content: center;
@@ -218,11 +317,9 @@ body {
     grid-area: headline;
     text-wrap: left;
     text-align: left;
-    font-family: "manrope"; 
 }
 
 .headline-hero p{
-    font-family: "manrope";
     font-size: 1.125rem;
     font-weight: 400 ;
     color:var(--clr-gray700);
@@ -255,7 +352,7 @@ h1 {
     
 }
 .discovermore {
-    color: #565973;
+    color: var(--clr-gray700);
     display:flex;
     text-decoration: none;
     font-size: 0.875rem;
@@ -263,11 +360,10 @@ h1 {
     gap:1rem;
     margin-top: 2rem;
     text-align: center;
-    font-family: "manrope";
     align-items: center;
 }
 .discovermore:hover {
-    color: var(--clr-primary-purple);
+    color: var(--clr-brand-primary-purple);
     text-decoration: underline;
 }
 
@@ -277,8 +373,8 @@ h1 {
     justify-content: center;
     width: 50px; 
     height: 50px;
-    background-color: #FFFFFF; 
-    color: #33354D; 
+    background-color: var(--clr-white);
+    color: var(--clr-gray800);
     border-radius: 50%; 
 
     box-shadow: 1px 1px 5px rgba(151, 151, 151, 0.3);
@@ -306,12 +402,12 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
         justify-content: center;
         justify-content: space-between;
         align-items: center;
-        gap:2rem
+        gap:2rem;
     }
 }  
 
 .brand-box {
-    border: 1px solid #E2E5F1;
+    border: 1px solid var(--clr-gray300);
     border-radius: 8px;
     height: 100px;
     width: 200px;
@@ -347,7 +443,6 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
     margin-left: 20rem;
     
     font-size: 1.125rem;
-    font-family: var(--fontfamily);
 }
 .number-2-headline {
     font-size: 2.5rem ;
@@ -420,7 +515,7 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
 .How-does-wrapper {
     padding-top: 6rem;
     padding-bottom: 6rem;
-    background-color: var(--clr-gray100);
+    background-color: var(--three-phones-background);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -429,7 +524,6 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
 }
 
  .how-does-headline h1{
-    font-family: "Manrope", sans-serif;
     font-size: 2.5rem;
     color: var(--clr-gray900);
     font-weight: 800;
@@ -445,7 +539,6 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
         display:flex;
         flex-direction: column;
         align-items: center;
-        font-family: "manrope", sans-serif;
         font-size: 1rem;
         color: #333;
         margin-top: 1rem;
@@ -475,9 +568,9 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
     justify-content: center;
     width: 25px; 
     height: 25px;
-    background-color: #ffffff; 
-    color: #6366F1; 
-    border: 2px solid #6366F1;
+    background-color: var(--clr-white);
+    color: var(--clr-brand-primary-purple) ;
+    border: 2px solid var(--clr-brand-primary-purple);
     border-radius: 50%; 
 }
     
@@ -493,7 +586,7 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "headlinebox top-right-box"
                             "bottom-left-container bottom-right-box";
-    background-color: white;
+    background-color: var(--background-color-white);
 }
 
 .headline-box{
@@ -532,7 +625,6 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
     grid-column: span 2;
 }
 .recieve-headline-text {
-    font-family: var(--fontfamily);
     color: var(--clr-gray900);
     font-weight: 900;
     font-size: 2rem;
@@ -543,7 +635,6 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
 
 .Icon-text-1, .Icon-text-2 {
     margin-top: 1rem;;
-    font-family: var(--fontfamily);
     color: var(--clr-gray700);
 
 }
@@ -555,7 +646,7 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
 
 
 .p4headline {
-    font-family: "manrope";
+
     font-size: 2rem;
     font-weight: 800;
     color: var(--clr-gray900);
@@ -564,7 +655,6 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
 .checkmark-andtext{
     display: flex;
     align-items: center;
-    font-family: var(--fontfamily);
     color: var(--clr-gray700);
     font-weight: 400;
     gap: .5rem;
@@ -580,8 +670,8 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
     display:flex;
     width: 195px;
     margin-top: 3rem;
-    background-color: #6366F1;
-    color: white;
+    background-color: var(--clr-brand-primary-purple);
+    color: var(--clr-white);
     border-radius: 8px;
     padding: 15px 20px;
     justify-content: center;
@@ -606,6 +696,7 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
   }
 
 .client-section h2 {
+    color: var(--clr-client);
     max-width: 20rem;
     font-size: 2.5rem; /* Gör texten större */
     text-wrap: wrap;
@@ -616,12 +707,13 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
     justify-content: center;
     padding: 4rem 4rem 4rem 4rem;
     gap:1rem;
-    background-color: var(--clr-gray100);
+    background-color: var(--review-container-background);
 }
 .review-card {
     display: flex;
     position: relative;
-    background-color: var(--clr-white);
+    background-color: var(--review-card-background);  /*styr kortets färg*/
+    color: var(--review-card-text);
     border-radius: 8px;
     padding: 1.5rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -637,7 +729,7 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
   }
 
   .star-rating span {
-    color: var(--clir-systemwarning)
+    color: var(--clr-systemwarning);
   } 
 
   .content-card {
@@ -651,6 +743,9 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
   .author-info {
     display: flex;
     gap: 1rem;
+    h3{
+        color:var(--review-card-author);
+    }
   }
 
 
@@ -677,7 +772,6 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
 
 .FAQ-text h2{
     max-width: 450px;
-    font-family: "manrope";
     color: var(--clr-gray900);
     font-weight: 800;
     font-size: 2rem;
@@ -686,7 +780,7 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
 .FAQ-text p {
     margin-top: 1rem;
     max-width: 375px;
-    font-family: "manrope";
+
     color: var(--clr-gray700);
     font-size: 1.125rem;
 }
@@ -705,13 +799,12 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
     padding-right: 0;
     height: 165px;
     width: 200px;
-    border: 2px solid var(--clr-gray300);
+    border: 2px solid var(--clr-contact-box);
     border-radius: 8px;
     
 }
 .img-and-text p {
     font-display: flex;
-    font-family: var(--fontfamily);
     margin-top: 1rem;
     font-size: 0.875rem ;
     font-weight: 400;
@@ -725,13 +818,12 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
     display: flex;
     width: 160px; 
     height: 30px;
-    font-family: "manrope";
     font-weight: 600;
     text-decoration: none;
     justify-content: flex-start;
     align-items: center;
-    color: var(--clr-primary-purple);
-    background-color:rgb(255, 255, 255);
+    color: var(--clr-brand-primary-purple);
+    background-color:var(--clr-background-white);
 }
 
 .contact-button i {
@@ -744,13 +836,12 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
     display: flex;
     width: 160px; 
     height: 30px;
-    font-family: "manrope";
     font-weight: 600;
     text-decoration: none;
     justify-content: flex-start;
     align-items: center;
     color: var(--clr-system-success);
-    background-color:rgb(255, 255, 255);
+    background-color:var(--background-color-white);
 
 }
 .contact-button-message i {
@@ -779,10 +870,9 @@ hur man fick javascriptet att fungera. */
     align-items: center;
     justify-content: space-between;
   
-    background-color: #ffffff;
+    background-color: var(--accordion-closed);
 
     font-weight: 600;
-    font-family: "Manrope";
     color: var(--clr-gray900);
     font-size: 1rem;
 
@@ -795,13 +885,13 @@ hur man fick javascriptet att fungera. */
 }
 
 .active {
-    background-color: #ffffff; 
+    background-color: var(--accordion-closed);
     margin-bottom: 0;
 }
 
 
 .accordion:hover {
-    background-color: #6365f1da; 
+    background-color: var(--clr-brand-primary-purple);
 }
 
 .accordion:after {
@@ -813,10 +903,10 @@ hur man fick javascriptet att fungera. */
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
     font-size: 13px;
-    color: #777;
+    color: var(--arrow-accordion-before);
 
  
-    background-color: #F3F6FF;
+    background-color: var(--arrow-background);
 
     border-radius: 50%;
     padding: 10px;
@@ -829,19 +919,19 @@ hur man fick javascriptet att fungera. */
   .accordion.active:after {
     content: "\f077"; 
     color: #ffffff;
-    background-color: #6366F1;
+    background-color: var(--clr-brand-primary-purple);
   }
 
 .panel p {
     font-weight: 400;
-    color: var(--clr-gray700);
+    color: var(--accordion-drop-text);
     padding: 1rem;
     font-size: 0.875rem;
 }
 
 .panel {
     width: 100%;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--accordion-drop);
     overflow: hidden;
     max-height: 0;
     opacity: 0;
@@ -866,8 +956,7 @@ hur man fick javascriptet att fungera. */
     padding: 5rem ;
     padding-left: 10rem;
     padding-right: 10rem;
-    font-family: "manrope";
-    background-color: #F3F6FF ;
+    background-color: var(--subscribe-container);
     justify-content: center;
     align-items: center;
     
@@ -878,7 +967,7 @@ hur man fick javascriptet att fungera. */
     margin-right: 2rem;
 }
 .subscribe-text h4 {
-    color: #0B0F19;
+    color: var(--clr-subscribe-text);
     font-weight: 800;
     font-size: 1.5rem;
     text-align: left;
@@ -887,7 +976,7 @@ hur man fick javascriptet att fungera. */
 }
 
 .btn-subscribe-purple {
-    background-color: #6366F1;
+    background-color: var(--clr-brand-primary-purple);
     color: white;
     width: 150px;
     height: 52px;
@@ -926,12 +1015,12 @@ hur man fick javascriptet att fungera. */
     height:52px;
     &:focus {
         outline:none;
-        box-shadow: 0 0 5px var(--clr-primary-purple);
+        box-shadow: 0 0 5px var(--clr-brand-primary-purple);
     }
 }
 
 .form-input::placeholder {
-    color: var(--clr-textgray500)
+    color: var(--clr-gray500);
 }
 .error-message {
     position: absolute;
@@ -955,21 +1044,16 @@ footer {
 
 }
 
-
 footer .footer-container {
     display:flex;
-
     min-width: 275px;
     max-width: 450px;
-
-    background-color: white;
-    font-family: "manrope";
     color: #9397AD;
 
     justify-content: center;
     text-align: center;
     align-items: center;
-    padding-top: 1.5rem;
+    padding-top: 2.5rem;
     padding-bottom: 4rem;
 }
 

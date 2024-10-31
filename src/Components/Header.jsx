@@ -2,11 +2,11 @@ import React from 'react'
 import Navbar from './Navbar'
 
 
-const Header = () => {
+const Header = ({ isDarkMode, setIsDarkMode }) => {
   return (
     <header>
       <div className="navbar-container">
-        <Navbar />
+        <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       </div>
     </header>
 

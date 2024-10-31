@@ -1,9 +1,13 @@
 import AppStore from '../Assets/Bildersilicon/Bildersida1/Desktop-sida1-mobil/AppStore-desktop.svg'
 import GooglePlay from '../Assets/Bildersilicon/Bildersida1/Desktop-sida1-mobil/GooglePlay-desktop.svg'
 import CellPhones from '../Assets/Bildersilicon/Bildersida1/2mobiler.svg'
+
+import darkapp from '../Assets/Bildersilicon/Bildersida1/Desktop-sida1-mobil/darkappstore.svg'
+import darkgoogle from '../assets/Bildersilicon/Bildersida1/Desktop-sida1-mobil/darkgoogleplay.svg'
+
 import React from 'react'
 
-const Main = () => {
+const Main =  ({ isDarkMode })  => {
   return (
     <main id="main">
       <section id="hero">
@@ -14,8 +18,8 @@ const Main = () => {
               Save, spend & manage money in your pocket.</p>
 
           <div className="buttons">
-              <a className="btn-app-download" href="https://www.apple.com/se/app-store/" target="_blank"><img src={AppStore} alt="App Store" /></a>
-              <a className="btn-app-download" href="https://play.google.com/store/games?device=windows" target="_blank"><img src={GooglePlay} alt="Google Play" /></a>
+              <a className="btn-app-download" href="https://www.apple.com/se/app-store/" target="_blank"><img src={isDarkMode ? darkapp : AppStore} alt="App Store" /></a>
+              <a className="btn-app-download" href="https://play.google.com/store/games?device=windows" target="_blank"><img src={isDarkMode ? darkgoogle : GooglePlay} alt="Google Play" /></a>
             </div>
           </div>
               
