@@ -1,5 +1,5 @@
 :root {
-    --clr-purple-gradient: linear-gradient(180deg, rgba(99,102,241,0.1) 0%, rgba(218,70,239,0.05) 42%, rgba(204,217,255,0.07) 83%);
+    --clr-purple-gradient: radial-gradient(circle, rgba(99,102,241,0.10407913165266103) 0%, rgba(218,70,239,0.053658963585434205) 42%, rgba(241,244,253,0.07046568627450978) 83%);
     --clr-brand-primary-purple: #6366F1;
     --clr-brand-gradient-purple: linear-gradient(0deg, rgba(99,102,241,1) 0%, rgba(139,92,246,1) 50%, rgba(217,70,239,1) 100%);
     
@@ -13,7 +13,7 @@
     --clr-gray300: #E2E5F1;
     --clr-gray200: #EFF2FC;
     --clr-gray100: #F3F6FF;
-    --clr-white: #FFFFFF;
+    --clr-white: #ffffff;
 
     --clr-background-gray900: #0B0F19;
     --clr-background-gray800: #33354D;
@@ -35,6 +35,9 @@
     /* header */
     --feature-text-hover: linear-gradient(0deg, rgba(99,102,241,1) 0%, rgba(139,92,246,1) 50%, rgba(217,70,239,1) 100%); 
 
+
+    --discover-circle-arrow: #33354D;
+    --discover-circle-shadow: rgba(151, 151, 151, 0.3);
     /* specifika färger */
     --clr-client: #000000;
     --three-phones-background: #F3F6FF;
@@ -66,7 +69,7 @@
     --clr-black-background: #000000;
     /* darkmodefärger */
     --clr-gray900: #ffffff;
-    --clr-gray800: #ffffff;
+    --clr-gray800: #33354D;
     --clr-gray700: #565973;
     --clr-gray600: #ffffff;
     --clr-gray500: #B4B7C9;
@@ -96,7 +99,9 @@
     /* header */
     --feature-text-hover: #ffffff; 
 
-
+    --discover-circle-arrow: #ffffff;
+    --discover-circle-background: rgba(255, 255, 255, 0.05);
+    --discover-circle-shadow: none;
     /* specifika färger */
     --clr-client: #ffffff;
     --three-phones-background: #1B1B2F;
@@ -129,29 +134,43 @@
     padding: 0;
     box-sizing: border-box;
 }
-p {
-    color: red;
-}
+
+/* img {
+    display: block;
+    max-width: 100%;
+} */
+
 body {
     font-family: var(--fontfamily);
     background-color: var(--clr-black-background);
-    width: 100%;
+    overflow-x: hidden;
     display:flex;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
 }
+
 .whole-website-size {
     max-width: 1920px;
+
 
 }
 .manage-all-background{
     background: var(--clr-purple-gradient);
+    
 }
     header {
-    
+
     font-family: "manrope";
-    margin: 5px;
     padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    /* background-color: var(--clr-background-white); */
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
 
 }
 .navbar-container {
@@ -175,9 +194,11 @@ body {
 }
 
 #navbar {
+
     display:flex;
     align-items: center;
     justify-content: space-between;
+    gap: 2rem;
 }
 
 .left-nav p, .right-nav p {
@@ -186,14 +207,16 @@ body {
 }
 
 
-.left-nav, .right-nav {
+.left-nav, .right-nav{
+    
     display: flex;
     align-items: center;
-    gap: 2rem;    
+    gap: 1.5rem;    
 }
 
 
 .darkmodetext {
+    display: flex;
     font-size: 1rem;
     font-weight: 600;
     color: var(--clr-gray700);
@@ -214,6 +237,64 @@ body {
     margin-right: 1rem;
 
 }
+.menu-container {
+ position: relative;
+}
+.hamburger {
+    display: none;
+}
+
+.menu {
+    position: absolute;
+    list-style: none;
+    background-color: var(--clr-brand-gradient-purple);
+    right: 2rem;
+    width: 100%;
+    
+}
+.menu li {
+    padding: 1rem;
+    
+}
+.menu li a {
+    text-decoration: none;
+    color: var(--clr-brand-primary-purple)
+}
+
+  /* kanske tar en från fontwesome istället */
+
+/* Tablet-läge */
+@media (max-width: 800px) {
+    #navbar{
+        display:flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 2rem;
+
+    }
+}
+@media (max-width: 800px) {
+    .feature-text {
+        display:none
+    }
+  }
+
+  @media (max-width: 800px) {
+    .btn-primary {
+      display: none; /* Döljer sign-in-knappen */
+    }
+  
+    .hamburger {
+      display: block; /* Visar hamburgermenyn */
+      cursor: pointer;
+      font-size: 1.5rem;
+      padding: 0.5rem;
+    }
+
+    .darkmodetext{
+        display: none;
+    }
+  }
 
     /*Har gjort den här delen genom att kolla på videon Joakim Lindh laddade upp om Custom checkboxes.
     https://www.youtube.com/watch?v=uSQaJb2rPcw&t=2950s&ab_channel=EPNSverigeAB-Utbildning */
@@ -291,7 +372,7 @@ body {
 
 
 #main {
-    padding-top:5rem;
+    padding-top:10rem;
     display: grid;
     max-width: 1400px;
     align-items: center;
@@ -373,11 +454,11 @@ h1 {
     justify-content: center;
     width: 50px; 
     height: 50px;
-    background-color: var(--clr-white);
-    color: var(--clr-gray800);
+    background-color: var(--discover-circle-background);
+    color: var(--discover-circle-arrow);
     border-radius: 50%; 
 
-    box-shadow: 1px 1px 5px rgba(151, 151, 151, 0.3);
+    box-shadow: 1px 1px 5px var(--discover-circle-shadow);
 }
 
 .images { 
@@ -510,7 +591,6 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
 
 
 
-
 /* page 3 */
 .How-does-wrapper {
     padding-top: 6rem;
@@ -520,8 +600,12 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media (max-width: 800px){
 
-}
+            display: none;
+        } 
+
+    }
 
  .how-does-headline h1{
     font-size: 2.5rem;
@@ -1056,5 +1140,3 @@ footer .footer-container {
     padding-top: 2.5rem;
     padding-bottom: 4rem;
 }
-
-
