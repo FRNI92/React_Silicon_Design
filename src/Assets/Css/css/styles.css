@@ -134,32 +134,36 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-/* img {
-    display: block;
-    max-width: 100%;
-} */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 
 body {
     font-family: var(--fontfamily);
     background-color: var(--clr-black-background);
-    overflow-x: hidden;
     display:flex;
     justify-content: center;
     align-items: center;
     overflow-x: hidden;
+    
+    
+}
+body * {
+    outline: 1px solid red;
 }
 
 .whole-website-size {
     max-width: 1920px;
-
+    
 
 }
 .manage-all-background{
     background: var(--clr-purple-gradient);
-    
+    display: flex;
+     justify-content: center; 
+    align-items: center; 
 }
-    header {
+header {
 
     font-family: "manrope";
     padding: 1rem;
@@ -168,16 +172,20 @@ body {
     left: 0;
     width: 100%;
     z-index: 1000;
-
-    /* background-color: var(--clr-background-white); */
-    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
-
 }
+
+/* @media (max-width: 768px){
+    header {
+        width: 100%
+        
+    }
+} */
 .navbar-container {
     max-width: 1400px;
 
     margin: 0 auto;
-    padding: 0 1rem;
+    /* padding: 0 1rem; */
+    
 
 }
 .feature-text {
@@ -185,6 +193,7 @@ body {
     font-size: 1rem;
     font-weight:var(--font-weight-600);
     color: var(--clr-gray800);
+    
 }
 
 .feature-text:hover {
@@ -203,6 +212,7 @@ body {
 
 .left-nav p, .right-nav p {
     margin: 0; 
+    
 
 }
 
@@ -212,6 +222,7 @@ body {
     display: flex;
     align-items: center;
     gap: 1.5rem;    
+    
 }
 
 
@@ -220,6 +231,7 @@ body {
     font-size: 1rem;
     font-weight: 600;
     color: var(--clr-gray700);
+    
 }
 
 
@@ -248,12 +260,15 @@ body {
     position: absolute;
     list-style: none;
     background-color: var(--clr-brand-gradient-purple);
-    right: 2rem;
+    right: 6rem;
     width: 100%;
     
 }
+
 .menu li {
     padding: 1rem;
+    width: 200px;
+    background-color:var(--clr-system-success)
     
 }
 .menu li a {
@@ -263,38 +278,7 @@ body {
 
   /* kanske tar en från fontwesome istället */
 
-/* Tablet-läge */
-@media (max-width: 800px) {
-    #navbar{
-        display:flex;
-        align-items: center;
-        justify-content: space-around;
-        gap: 2rem;
 
-    }
-}
-@media (max-width: 800px) {
-    .feature-text {
-        display:none
-    }
-  }
-
-  @media (max-width: 800px) {
-    .btn-primary {
-      display: none; /* Döljer sign-in-knappen */
-    }
-  
-    .hamburger {
-      display: block; /* Visar hamburgermenyn */
-      cursor: pointer;
-      font-size: 1.5rem;
-      padding: 0.5rem;
-    }
-
-    .darkmodetext{
-        display: none;
-    }
-  }
 
     /*Har gjort den här delen genom att kolla på videon Joakim Lindh laddade upp om Custom checkboxes.
     https://www.youtube.com/watch?v=uSQaJb2rPcw&t=2950s&ab_channel=EPNSverigeAB-Utbildning */
@@ -363,44 +347,25 @@ body {
 }
     /* Joakim Lindhs knapp. har gjort den här delen genom att följa hans videor */
 
-
-
-#hero {
-    max-width: 1400px;
-    
-}
-
-
-#main {
-    padding-top:10rem;
-    display: grid;
-    max-width: 1400px;
-    align-items: center;
-    justify-content: center;
-}
-#hero .container {
-    display: grid;
-    max-width: 1400px;
-    column-gap: 10rem;
-  
-    grid-template-columns: 500px 200px;
-    grid-template-rows: auto;
-    grid-template-areas: "headline images  " 
-                            "content images  ";
-}
-
-.img-mobile {
+.hero {
     display: flex;
-    height: 95%;
-}
-.headline-hero {
-    
-    grid-area: headline;
-    text-wrap: left;
-    text-align: left;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 
-.headline-hero p{
+.text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; 
+    justify-content: space-evenly;
+}
+
+.text-container p{
     font-size: 1.125rem;
     font-weight: 400 ;
     color:var(--clr-gray700);
@@ -408,21 +373,11 @@ body {
     margin-top: 2rem;
 }
 
-
 h1 {
     text-align: left;
     color: var(--clr-gray900);
     font-size: 3.5rem;
     font-weight: 800;
-    
-}
-
-.content {
-    grid-area: content;
-
-    display: flex;
-    text-align: left;
-
 }
 
 .buttons {
@@ -432,6 +387,7 @@ h1 {
     gap: 1rem;
     
 }
+
 .discovermore {
     color: var(--clr-gray700);
     display:flex;
@@ -439,7 +395,8 @@ h1 {
     font-size: 0.875rem;
     font-weight:400;
     gap:1rem;
-    margin-top: 2rem;
+    margin-top: 12rem;
+    margin-bottom: 4rem;
     text-align: center;
     align-items: center;
 }
@@ -461,25 +418,71 @@ h1 {
     box-shadow: 1px 1px 5px var(--discover-circle-shadow);
 }
 
-.images { 
-    display: grid;
-    grid-area: images;
-    position: relative;
+
+
+/* .image-container {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+
+@media (max-width: 768px) {
+    .image-container {
+        display: none;
+    }
+    .hero {
+        
+
+        flex-direction: column;
+        justify-content: center;
+    }
+    .text-container {
+        display: flex;
+        width: auto;
+        gap: .4rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 1rem;
+
+        margin-bottom: 2rem;
+    }
+   .text-container h1, 
+   .text-container p, 
+   .text-container .buttons {
+        font-size: 2rem; /* Justera efter behov */
+        display: inline-flex;
+        margin-left: 5rem;
+        margin-right: 2rem;
+        text-align: center;
+    }
+    .buttons {
+        margin-top: 4rem;
+        justify-content: left;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        
+    }
 
 }
+
 /* Har gjort en här delen genom att följa videon om brands och flexbox som Hans Mattin-Lassei har gjort.
 https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildning*/
 #brands{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 5rem;
 }
 
 #brands {
     scroll-margin-top: -100px;
     .container {
         display:flex;
-        max-width: 1400px;
         justify-content: center;
         justify-content: space-between;
         align-items: center;
@@ -496,6 +499,12 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
     justify-content: center;
     align-items: center;
     
+}
+
+@media(max-width: 768px) {
+    #brands {
+        display: none;
+    }
 }
 /*har gjort en här delen genom att följa videon om brands och flexbox */
 
@@ -520,8 +529,8 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 600px;
-    margin-left: 20rem;
+    max-width: 600px;
+    margin-left: 20rem; 
     
     font-size: 1.125rem;
 }
@@ -573,12 +582,41 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
     }
 }
 
+@media(max-width: 768px){
+    .App-features{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+    }
+    .mobil-app-features{
+       display: none;
+   }
+   .Easy-payment-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    }
+    .App-feature-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-left: 0;
+        font-size: 1.125rem;
+        
+    }
+    .Easy-payment-container p {
+        margin-bottom: .4rem;;
+    }
+    
+}
 
 
 
 
-
-.btn-square {
+/* .btn-square {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -587,11 +625,13 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
     border-radius: 10px;
     margin-right: 10px;
 
-}
+} */
 
 
 
 /* page 3 */
+
+
 .How-does-wrapper {
     padding-top: 6rem;
     padding-bottom: 6rem;
@@ -600,12 +640,8 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    @media (max-width: 800px){
 
-            display: none;
-        } 
-
-    }
+}
 
  .how-does-headline h1{
     font-size: 2.5rem;
@@ -614,9 +650,10 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
     margin-bottom: 4rem;
 }
 .mobiler {
+    display: block;
+    max-width: 100%;
     display: flex;
-    justify-content: space-between;
-    gap: 5rem
+    gap: 5rem;
 }
 
 .bottomtext {
@@ -638,15 +675,23 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
 .latest-transaction-text{
     text-align: center;
     text-wrap: wrap;
-    max-width: 35rem;
+    /* max-width: 35rem; */
     font-weight: 400;
     color: var(--clr-gray700);
+}
+@media(max-width: 768px) {
+    .How-does-wrapper .mobiler > :nth-child(1), 
+    .How-does-wrapper .mobiler > :nth-child(3) {
+        display:none;
+
+    } 
+
 }
 
 
 /* sida4 */
 
-.btn-checkbox {
+/* .btn-checkbox {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -656,7 +701,7 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
     color: var(--clr-brand-primary-purple) ;
     border: 2px solid var(--clr-brand-primary-purple);
     border-radius: 50%; 
-}
+} */
     
 
 .Make-your-wrapper {   
@@ -675,7 +720,7 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
 
 .headline-box{
     padding-top: 3rem;
-    margin-left: 3rem;
+    margin-left: 8rem;
     grid-area: headlinebox;
 
 }
@@ -683,14 +728,14 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
 .top-right-box {
     grid-area: top-right-box;
     display:flex;
-    justify-content: right;
+    margin-left: 5rem;
 }
 
-.bottom-left-box {
-    margin-left: 3rem;
+.bottom-left-container {
     grid-area: bottom-left-container;
+    display: inline-flex;
+    justify-content: flex-end;
 }
-
 
 
 .recieve-payment-box {
@@ -744,10 +789,10 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
     gap: .5rem;
     margin-top: 1.5rem;
 }
-.check-box-text {
+/* .check-box-text {
     margin: 0;
 
-}
+} */
 
 
 .btn-purple {
@@ -765,12 +810,19 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
 .btn-purple i {
     margin-left: 1rem;
 }
+@media(max-width: 768px){
+    
+    .Make-your-wrapper {   
+        display: none;
 
+    }
+}
 
 
 /* sida 5*/
 .client-section {
-    width: 100vw;
+    display: flex;
+    justify-content: center;
 
 }
 @media (max-width: 768px) {
@@ -934,7 +986,7 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
 
 
 .drop-down-menu-container {
-    width: 50%;
+    max-width: 50%;
 }
 
 /* följde https://www.w3schools.com/howto/howto_js_accordion.asp för att göra drop-down-menyerna.
@@ -946,7 +998,7 @@ hur man fick javascriptet att fungera. */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;
-    transition: box-shadow 0.4s ease-in-out;
+    transition: box-shadow .4s ease-in-out;
 }
 
 .accordion {
@@ -1028,6 +1080,40 @@ hur man fick javascriptet att fungera. */
     opacity: 1;  
 
 }
+.drop-down-menu-container .btn-purple {
+    display: none;
+}
+@media(max-width: 768px){
+    .FAQ-page {
+        /* display:flex; */
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        /* text-align: center; */
+        
+
+    }
+    .FAQ-page .contact-box {
+        display: none
+
+    }
+    .FAQ-text h2{
+        color: var(--clr-gray900);
+        font-weight: 800;
+        font-size: 2rem;
+        /* text-align: center; */
+    }
+    .FAQ-text p {
+        margin-top: 1rem;
+    
+        color: var(--clr-gray700);
+        font-size: 1.125rem;
+        /* text-align: center; */
+    }
+    .drop-down-menu-container .btn-purple {
+        display: flex;
+    }
+}
 /* följde https://www.w3schools.com/howto/howto_js_accordion.asp för att göra drop-down-menyerna.
 chatgpt guidade mig till vilka delar som skulle ändras för att få det mer likt Siliconvalley-designen. samt 
 hur man fick javascriptet att fungera. */
@@ -1043,20 +1129,25 @@ hur man fick javascriptet att fungera. */
     background-color: var(--subscribe-container);
     justify-content: center;
     align-items: center;
-    
+
+}
+.icon-text-wrapper {
+    display: flex;
 
 }
 .bell-icon {
-    display: flex;
-    margin-right: 2rem;
+     max-width: 100%;
+     margin-right: 2rem; 
 }
-.subscribe-text h4 {
+.subscribe-text .desktop-text {
     color: var(--clr-subscribe-text);
     font-weight: 800;
     font-size: 1.5rem;
     text-align: left;
     text-wrap: balance;
-
+}
+.mobile-text {
+    display: none;
 }
 
 .btn-subscribe-purple {
@@ -1081,7 +1172,7 @@ hur man fick javascriptet att fungera. */
 }
 .input-icon {
     position: absolute;
-    left:70px; 
+    left: 70px; 
     width: 20px; 
     height: 20px; 
     z-index: 1;
@@ -1089,8 +1180,11 @@ hur man fick javascriptet att fungera. */
 .mb-1 {
     margin-bottom: 1rem;
 }
-
+.form-button-wrapper{
+    display: flex;
+}
 .form-input {
+    
     font-size: 1rem;
     padding: .7em 3.5em;
     border-radius: 8px 0px 0px 8px;
@@ -1118,6 +1212,65 @@ hur man fick javascriptet att fungera. */
     display: block;
   }
 
+  @media (max-width: 768px) {
+    .subscribe-container {
+        flex-direction: column; 
+        align-items: center;
+    }
+    .desktop-text {
+        display: none;
+    }
+
+    .subscribe-text .mobile-text {
+        color: var(--clr-subscribe-text);
+        font-weight: 800;
+        font-size: 1.5rem;
+        text-align: left;
+        display: flex;
+        /* text-wrap: balance; */
+    }
+
+
+    .subscribe-container {
+        display: flex;
+        padding: 0;
+        padding-bottom: 3rem;
+        background-color: var(--subscribe-container);
+        justify-content: center;
+        align-items: center;
+    
+    }
+    .icon-text-wrapper {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap:1rem;
+    }
+    .bell-icon {
+         margin-right: 0rem; 
+         margin-left: 2rem;
+    }
+    
+    .input-icon {
+        position: absolute;
+        left: 10px; 
+    }
+    .mb-1 {
+        margin-bottom: 1rem;
+    }
+    .form-button-wrapper{
+        display: flex;
+    }
+    .form-input {
+        max-width: 150px;
+        display: flex;
+        padding: .7em 1.9em;
+        margin-left: 0px;
+    }
+
+}
 
 footer {
     display: flex;
@@ -1140,3 +1293,73 @@ footer .footer-container {
     padding-top: 2.5rem;
     padding-bottom: 4rem;
 }
+
+@media (max-width: 768px) {
+    body {
+        /* min-width: 100svh; */
+        /* min-width: 100svw; */
+        /* padding-left: 20em; */
+        /* overflow-x: hidden; */
+        /* outline: 1px solid red; */
+    }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+    .text-container h1 {
+        width: 100vw; /* Gör så att rubriken tar hela viewportens bredd */
+        text-align: center; /* Valfritt: justera textinriktningen */
+        margin: 0; /* Ta bort eventuell margin */
+        padding: 0 1rem; /* Valfritt: ger lite padding för bättre visuell balans */
+    }
+
+    .text-container {
+        align-items: center; /* Justerar andra element i text-container efter behov */
+    }
+    .image-container {
+        display: none;
+    }
+}
+
+
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .feature-text {
+        display:none
+    }
+    .btn-primary {
+        display: none; /* Döljer sign-in-knappen */
+      }
+    
+      .hamburger {
+        display: block; /* Visar hamburgermenyn */
+        cursor: pointer;
+        font-size: 1.5rem;
+        padding: 0.5rem;
+      }
+
+
+  
+  }
+@media (max-width: 768px) {
+    .feature-text {
+        display:none
+    }
+    .btn-primary {
+        display: none; /* Döljer sign-in-knappen */
+      }
+    
+      .hamburger {
+        display: block; /* Visar hamburgermenyn */
+        cursor: pointer;
+        font-size: 1.5rem;
+        padding: 0.5rem;
+      }
+      .text-container {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+  
+      .darkmodetext{
+          display: none;
+      }
+  }

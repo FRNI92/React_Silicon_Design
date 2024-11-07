@@ -40,32 +40,39 @@ const SubscribeContainer = () => {
   return (
       <section>
         <div className="subscribe-container">
-          
-          <div className="bell-icon">
-            <img src={Icons1} alt="bellicon" />
-          </div>
-          <div className="subscribe-text">
-            <h4>Subscribe to our newsletter to stay informed about latest updates</h4>
-          </div>
-          <form onSubmit={handleSubmit}>
-            <div className="input-wrapper mb1">
-              <img className="input-icon" src={Icons2} alt="small white envelope" />
-              <input 
-              type="text"
-              value={email} 
-              onChange={handleEmailChange}
-              className="form-input" 
-              id="email" 
-              placeholder="Your Email"
-              minLength="1" />
+          <div className="icon-text-wrapper">
+            <div className="bell-icon">
+              <img src={Icons1} alt="bellicon" />
             </div>
-            <p className={`error-message ${error ? 'visible' : ''}`}>{error}</p>
-          </form>
-          <div>
-            <a href="#" className="btn-subscribe-purple">
-              <i className="fa-solid fa-right-to-bracket"></i>
-              <span>Subscribe</span>
-            </a>
+            <div className="subscribe-text">
+              <h4 className="desktop-text">Subscribe to our newsletter to stay informed about latest updates</h4>
+              <h4 className="mobile-text">Subscribe to our newsletter</h4>
+            </div>
+          </div>
+
+
+          <div className="form-button-wrapper">
+            <form onSubmit={handleSubmit}>
+              <div className="input-wrapper mb1">
+                <img className="input-icon" src={Icons2} alt="small white envelope" />
+                <input 
+                type="text"
+                value={email} 
+                onChange={handleEmailChange}
+                className="form-input" 
+                id="email" 
+                placeholder="Your Email"
+                minLength="1" />
+              </div>
+              <p className={`error-message ${error ? 'visible' : ''}`}>{error}</p>
+            </form>
+            <div>
+              <a href="#" className="btn-subscribe-purple">
+                {/* <i className="fa-solid fa-right-to-bracket"></i> */}
+                <span>Subscribe</span>
+              </a>
+            </div>
+
           </div>
 
       </div>

@@ -30,13 +30,17 @@ const DropDownContainer = () => {
                 <p>{item.content}</p>
             </div>
           </div>
+          
       )}
-        
+            <a href="#" className="btn-purple">
+              <span>Contact us now</span>
+            </a>
     </section>
   );
 };
 
 export default DropDownContainer
+              
             
 
 
