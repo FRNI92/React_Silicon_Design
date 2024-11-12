@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 // import { useEffect, useRef } from 'react';
 import { useEffect, useState } from 'react'
+import Swal from 'sweetalert2';
 
 
 
@@ -71,7 +72,7 @@ if (fullNameError || emailError || !fullName || !email) {
   return; // Avbryt formulärets inskickning
 }
 
-alert('Din tid är bokad!');
+Swal.fire('Din tid är bokad!', 'Vi kommer ringa dig fast vi inte har ditt nummer', 'success');
 };
 
   return (
