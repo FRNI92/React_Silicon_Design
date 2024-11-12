@@ -3,6 +3,9 @@
     --clr-brand-primary-purple: #6366F1;
     --clr-brand-gradient-purple: linear-gradient(0deg, rgba(99,102,241,1) 0%, rgba(139,92,246,1) 50%, rgba(217,70,239,1) 100%);
     
+
+    --form-box-shadow: hsl(261, 50%, 50%);
+    --boxshadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     /* grayscale */
     --clr-gray900: #0B0F19;
     --clr-gray800: #33354D;
@@ -25,6 +28,8 @@
     --clr-background-gray200: #EFF2FC;
     --clr-background-gray100: #F3F6FF;
     --clr-background-white: #FFFFFF;
+
+    
     
     --fontfamily: "manrope";
     --new-Gradient: radial-gradient(circle, rgba(99,102,241,0.1) 0%, rgba(218,70,239,0.05) 42%, rgba(241,244,253,0.07) 83%);
@@ -59,6 +64,7 @@
     --clr-system-success: #22C55E;
     --clr-system-error: #EF4444;
     --clr-systemwarning: #FFBA08;
+
 }
 
 [dark-theme="dark"] {
@@ -66,6 +72,8 @@
     --clr-brand-primary-purple: #6366F1;
     --clr-brand-gradient-purple: linear-gradient(0deg, rgba(99,102,241,1) 0%, rgba(139,92,246,1) 50%, rgba(217,70,239,1) 100%);
     
+    --boxshadow: 0 2px 5px rgba(255, 255, 255, 0.466);
+
     --clr-black-background: #000000;
     /* darkmodefärger */
     --clr-gray900: #ffffff;
@@ -76,7 +84,7 @@
     --clr-gray400: #ffffff;
     --clr-gray300: #ffffff;
     --clr-gray200: #ffffff;
-    /* --clr-gray100: #ffffff; */
+   
 
     /* dark-background */
     --clr-background-gray900: #0B0F19;
@@ -119,12 +127,6 @@
     --accordion-drop-text:#d1d1db9d;
     --subscribe-container:  #1B1B2F;
     
-
-    /* system */
-    --clr-system-info: #4C82F7;
-    --clr-system-success: #22C55E;
-    --clr-system-error: #EF4444;
-    --clr-systemwarning: #FFBA08;
 }
 
     
@@ -149,7 +151,7 @@ body {
     
 }
 body * {
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
 }
 
 .whole-website-size {
@@ -253,6 +255,7 @@ header {
  position: relative;
 }
 .hamburger {
+    color: var(--clr-gray900);
     display: none;
 }
 
@@ -268,9 +271,14 @@ header {
 .menu li {
     padding: 1rem;
     width: 200px;
-    background-color:var(--clr-system-success)
-    
+    padding: 1rem;
+    width: 200px;
+    background-color: var(--review-container-background);
+    box-shadow: var(--boxshadow);
+    border-radius: 8px; 
 }
+
+    
 .menu li a {
     text-decoration: none;
     color: var(--clr-brand-primary-purple)
@@ -1362,4 +1370,247 @@ footer .footer-container {
       .darkmodetext{
           display: none;
       }
+  }
+
+  /* contactpage */
+  .contact-consultation-wrapper{
+    display: flex;
+    flex-shrink: 1;
+    padding: 2rem 2rem 0rem 2rem;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    max-height: 600px;
+
+}
+
+  .online-consultation-wrapper {
+    flex: 1;
+    margin-top: -4rem;
+    max-width: 600px;
+    background-color: var(--review-card-background);
+ 
+  }
+  .online-consultation-wrapper h2, label {
+    color: var(--clr-gray900)
+  }
+  
+  .online-consultation {
+   padding: 4rem;
+   border-radius: .5rem;
+   background-color: var(--primary-white);
+   position: relative;
+   height: 750px;
+   z-index: 10;
+
+   box-shadow: 0 2px 10px rgba(196, 26, 26, 0.1);
+  }
+
+  
+  .form-field{
+    margin-bottom: 2rem;
+  }
+  .form-field-error {
+    color: var(--clr-system-error);
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+  }
+form:focus-within {
+    box-shadow: 0 0 10px var(--form-box-shadow);
+}  
+  .form-field label {
+    display: block;
+  }
+  
+  .form-field input {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: var(--primary-white);
+  }
+  .form-field select {
+    width: 100%;
+    padding: .8rem;
+
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: var(--primary-white);
+  
+  }
+  .form-field #specialist {
+    color: var(--clr-gray900);
+    background-color: var(--clr-background-white);
+  }
+  
+  input:focus,
+  select:focus {
+    outline: none;
+    border-color: var(--clr-brand-primary-purple);
+  }
+  
+  .submit-button {
+    margin-top: 13rem;
+    width: 100%;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0px 0px 5px rgb(49, 46, 46);
+    background-color: var(--clr-brand-primary-purple);
+    color: var(--clr-background-white);
+  }
+  .submit-button span {
+    font-family: "manrope";
+  }
+  
+
+
+.contact-section {
+    padding-top: 5rem;
+    background-color: var(--review-container-background);
+    display: flex;
+    flex-direction: column;
+
+
+  }
+  
+  .navigation-trail {
+    margin-left: 3rem;
+    display: inline-flex;
+    gap: .7rem;
+    margin-top: 3rem;
+    font-size: .875rem;
+    color: var(--clr-brand-primary-purple);
+  }
+  .contact-header{
+    margin-top: 2rem;
+    margin-left: 3rem;
+  }
+  
+  .navigation-trail a {
+    text-decoration: none;
+    color: var(--clr-background-gray600);
+  }
+  
+  .contact-section h1 h2 p {
+    color: var(--clr-gray900);
+    margin-top: 2rem;
+    font-size: 1rem;
+
+  }
+
+
+  .contact-options {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .contact-card {
+    margin-top: 1rem;
+    border-radius: 8px;
+    max-width: 400px;
+    display:flex;
+    gap: 1.5rem
+  }
+
+  .icon i {
+    display: inline-flex;
+    color: var(--clr-brand-primary-purple);
+    font-size: 2rem;
+    
+    border-radius: 50%;
+    padding: 1rem;
+
+    background-color: var(--clr-background-white);
+  }
+  
+  .contact-info {
+    display:flex;
+    flex-direction: column;
+    gap: 2rem
+  }
+  .contact-link {
+    text-decoration: none;
+    color: var(--clr-brand-primary-purple);
+    font-weight: bold;
+  
+    align-items: center;
+  }
+  .contact-link i {
+    margin-left: .5rem;
+  }
+  .contact-link:hover {
+    text-decoration: underline;
+  }
+
+  
+  .map-medical {
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10rem;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .map-medical {
+      flex-direction: column; 
+    }
+    .contact-consultation-wrapper{
+        flex-direction: column-reverse;
+        
+    }
+    .online-consultation-wrapper{
+        margin-top: 3rem
+    }
+    .contact-card {
+        box-shadow: var(--boxshadow);
+    }
+    .medical-card {
+        box-shadow: var(--boxshadow);
+    }
+  }
+  .medical-info {
+    display: flex;
+    flex-direction: column;
+  }
+  .medical-card {
+    background-color: var(--review-card-background);
+    display: flex;
+    flex-direction: column;
+  
+    padding: 1.5rem;
+    border-radius: .5rem;
+    gap: 1.5rem;
+    
+  }
+  .medical-card h2, p, i {
+    color: var(--review-card-text);
+  }
+  
+  .medical-card i {
+    margin-right: .6rem;
+    color: var(--clr-brand-primary-purple)
+  }
+  
+  
+  .social-media {
+    align-self: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .8rem;
+    
+    
+  }
+  .social-media i {
+    display: inline-flex;
+    
+    font-size: 1.5rem;
+    padding: .8rem;
+    border-radius: 8px;
+    color: black;
+    background-color: var(--clr-background-gray200);
   }

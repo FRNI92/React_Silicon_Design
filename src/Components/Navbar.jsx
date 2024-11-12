@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import LightLogoType from '../Assets/Bildersilicon/Bildersida1/Desktop-sida1-mobil/logasilicon.svg'
 import DarkLogoType from '../Assets/Bildersilicon/Bildersida1/Desktop-sida1-mobil/darklogasilicon.svg'
+import { Link } from 'react-router-dom';
+
 
 const Navbar = ({ isDarkMode, setIsDarkMode }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -30,10 +32,10 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
 
       <nav id="navbar" aria-label="main navigation">
             <div className="left-nav">
-              <a href="index.html">
-                <img src={isDarkMode ? DarkLogoType : LightLogoType} alt="Silicon crystal purple gradient with the text Si 14 written on top. Silicon Design" /></a>
-                <a href="#brands" className="feature-text">Features</a>
-                <a href="#brands" className="feature-text">Contact</a>
+              <Link to="/">
+                <img src={isDarkMode ? DarkLogoType : LightLogoType} alt="Silicon crystal purple gradient with the text Si 14 written on top. Silicon Design" /></Link>
+                <Link className="feature-text">Features</Link>
+                <Link to="/contact" className="feature-text">Contact</Link>
             </div>
               
             <div className="right-nav">
@@ -52,9 +54,9 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
                 </div>
                 {menuOpen && (
                 <ul className="menu">
-                  <li><a href="#home">Home</a></li>
-                  <li><a href="#features">Features</a></li>
-                  <li><a href="#contact">Contact</a></li>
+                  <li><Link to="/">Home</Link></li>
+                  <li><a href="#contact">Features</a></li>
+                  <li><Link to="/Contact">Contact</Link></li>
                   <li><a href="#contact">Sign in / Sign Up</a></li>
                 </ul>
                 
