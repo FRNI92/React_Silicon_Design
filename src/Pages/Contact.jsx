@@ -66,10 +66,10 @@ const handleSubmit = (e) => {
     setSpecialistError('Please select a specialist');
     return;
   }
-    // Kontrollera om fullName och email är giltiga
+    
 if (fullNameError || emailError || !fullName || !email) {
   alert('Please correct the errors in the form.');
-  return; // Avbryt formulärets inskickning
+  return; 
 }
 
 Swal.fire('Din tid är bokad!', 'Vi kommer ringa dig fast vi inte har ditt nummer', 'success');
@@ -80,7 +80,7 @@ Swal.fire('Din tid är bokad!', 'Vi kommer ringa dig fast vi inte har ditt numme
     <section className="contact-section">
     
     <div className="navigation-trail">
-      <Link to="/"><i className="fa-solid fa-house"></i>Homepage</Link> &raquo; <span>Contact</span>
+      <Link to="/"><i className="fa-solid fa-house"></i><span>Homepage</span></Link><span> &raquo; </span><span>Contact</span>
     </div>
     <div className="contact-header">
       <h1>Contact Us</h1>

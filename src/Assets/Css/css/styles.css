@@ -5,7 +5,8 @@
     
 
     --form-box-shadow: hsl(261, 50%, 50%);
-    --boxshadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --boxshadow: rgba(196, 26, 26, 0.1);
+    --consultation-background:hsl(0, 0%, 100%);
     /* grayscale */
     --clr-gray900: #0B0F19;
     --clr-gray800: #33354D;
@@ -72,7 +73,9 @@
     --clr-brand-primary-purple: #6366F1;
     --clr-brand-gradient-purple: linear-gradient(0deg, rgba(99,102,241,1) 0%, rgba(139,92,246,1) 50%, rgba(217,70,239,1) 100%);
     
-    --boxshadow: 0 2px 5px rgba(255, 255, 255, 0.466);
+    --boxshadow: rgba(197, 7, 255, 0.274);
+    --consultation-background:hsl(0, 0%, 7%);
+
 
     --clr-black-background: #000000;
     /* darkmodefärger */
@@ -1373,28 +1376,37 @@ footer .footer-container {
   }
 
   /* contactpage */
+  .contact-section {
+    padding-top: 5rem;
+    background-color: var(--review-container-background);
+    display: flex;
+    flex-direction: column;
+  }
   .contact-consultation-wrapper{
     display: flex;
-    flex-shrink: 1;
+    /* flex-shrink: 1; */
     padding: 2rem 2rem 0rem 2rem;
     flex-direction: row-reverse;
     justify-content: space-between;
-    max-height: 600px;
+    /* max-height: 600px; */
 
 }
 
   .online-consultation-wrapper {
     flex: 1;
     margin-top: -4rem;
+    margin-bottom: -4rem;
     max-width: 600px;
-    background-color: var(--review-card-background);
+    position: relative;
+    background-color: var(--consultation-background);
  
   }
   .online-consultation-wrapper h2, label {
-    color: var(--clr-gray900)
+    color: var(--clr-gray900);
   }
   
   .online-consultation {
+
    padding: 4rem;
    border-radius: .5rem;
    background-color: var(--primary-white);
@@ -1402,7 +1414,7 @@ footer .footer-container {
    height: 750px;
    z-index: 10;
 
-   box-shadow: 0 2px 10px rgba(196, 26, 26, 0.1);
+   box-shadow: 0 2px 10px var(--boxshadow);
   }
 
   
@@ -1464,25 +1476,19 @@ form:focus-within {
     font-family: "manrope";
   }
   
-
-
-.contact-section {
-    padding-top: 5rem;
-    background-color: var(--review-container-background);
-    display: flex;
-    flex-direction: column;
-
-
-  }
-  
   .navigation-trail {
     margin-left: 3rem;
     display: inline-flex;
-    gap: .7rem;
+
     margin-top: 3rem;
     font-size: .875rem;
     color: var(--clr-brand-primary-purple);
-  }
+
+
+}
+.navigation-trail span {
+    margin-left: .6rem;
+}
   .contact-header{
     margin-top: 2rem;
     margin-left: 3rem;
@@ -1508,10 +1514,11 @@ form:focus-within {
   
   .contact-card {
     margin-top: 1rem;
+    margin-bottom: 2rem;
     border-radius: 8px;
     max-width: 400px;
     display:flex;
-    gap: 1.5rem
+    gap: 1.5rem;
   }
 
   .icon i {
@@ -1528,7 +1535,13 @@ form:focus-within {
   .contact-info {
     display:flex;
     flex-direction: column;
-    gap: 2rem
+    gap: 1rem;
+    color: var(--clr-gray900);
+
+  }
+
+  .contact-info p {
+    color: var(--clr-gray700);
   }
   .contact-link {
     text-decoration: none;
