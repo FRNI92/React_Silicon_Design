@@ -7,6 +7,7 @@
     --form-box-shadow: hsl(261, 50%, 50%);
     --boxshadow: rgba(196, 26, 26, 0.1);
     --consultation-background:hsl(0, 0%, 100%);
+    --clr-button-hover-purple: #9563f1;
     /* grayscale */
     --clr-gray900: #0B0F19;
     --clr-gray800: #33354D;
@@ -518,9 +519,6 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
     }
 }
 /*har gjort en här delen genom att följa videon om brands och flexbox */
-
-
-
 
 
 /* sida 2 */
@@ -1167,12 +1165,23 @@ hur man fick javascriptet att fungera. */
     width: 150px;
     height: 52px;
     border-radius: 0 8px 8px 0;
-
+    cursor: pointer;
     display:flex;
     column-gap: .5rem;
     justify-content: center;
     align-items: center;
     text-decoration: none;
+    border: none;
+    outline:none;
+
+ 
+}
+.btn-subscribe-purple span {
+    font-size: 1rem;
+}
+.btn-subscribe-purple:hover {
+    background-color: var(--clr-button-hover-purple);
+    border: none
 }
 
 .input-wrapper {
@@ -1193,6 +1202,7 @@ hur man fick javascriptet att fungera. */
 }
 .form-button-wrapper{
     display: flex;
+
 }
 .form-input {
     
@@ -1221,6 +1231,17 @@ hur man fick javascriptet att fungera. */
   
   .error-message.visible {
     display: block;
+  }
+  .success-message {
+    color: var(--clr-system-success);
+    visibility: hidden;
+    display: none;
+    margin-top: 1rem;
+    margin-left: 3rem;
+  }
+  .success-message.visible {
+    visibility: visible;
+    display:block
   }
 
   @media (max-width: 768px) {
@@ -1420,13 +1441,22 @@ footer .footer-container {
   
   .form-field{
     margin-bottom: 2rem;
+
+  }
+  [dark-theme="dark"] .form-field input {
+    color: var(--clr-gray300);
   }
   .form-field-error {
     color: var(--clr-system-error);
     font-size: 0.9rem;
     margin-top: 0.25rem;
   }
-form:focus-within {
+  .form-field-greenText {
+    color: var(--clr-system-success);
+    font-size: .9rem;
+    margin-top: .25rem;
+  }
+.online-consultation:focus-within {
     box-shadow: 0 0 10px var(--form-box-shadow);
 }  
   .form-field label {
@@ -1474,6 +1504,9 @@ form:focus-within {
   }
   .submit-button span {
     font-family: "manrope";
+  }
+  .submit-button:hover {
+    background-color: var(--clr-button-hover-purple);
   }
   
   .navigation-trail {

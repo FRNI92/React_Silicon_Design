@@ -22,6 +22,7 @@ const Contact = () => {
   
   const [fullName, setFullName] = useState('');
   const [fullNameError, setFullNameError] = useState('');
+  const [ fullNameGreenText, setFullNameGreenText] = useState ('')
 
   const handleFullNameChange = (e) => {
     const value = e.target.value;
@@ -29,13 +30,16 @@ const Contact = () => {
     const regex = /^[a-zA-Z]+(?: [a-zA-Z]+)+$/;
     if (!regex.test(value)) {
       setFullNameError('Please enter a valid full name.');
+      setFullNameGreenText('')
     } else {
       setFullNameError('');
+      setFullNameGreenText('snyggt')
     }
   };
 
   const [email, setEmail] = useState ('')
   const [emailError, setEmailError] = useState('')
+  const [emailGreenText, setEmailGreenText] = useState('')
 
   const handleEmailChange = (e) => {
 
@@ -43,36 +47,57 @@ const Contact = () => {
     setEmail(value);
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if(!regex.test(value)) {
-      setEmailError('Please enter a valid email');
-    }else setEmailError('')
+      setEmailError('Please enter a valid email:');
+      setEmailGreenText('');
+    } else { setEmailError('');
+          setEmailGreenText('snyggt');
   }
+}
 
   const [specialist, setSpecialist] = useState('');
   const [specialistError, setSpecialistError] = useState('');
+  const [specialistGreenText, setSpecialistGreenText] = useState('')
 
     const handleSpecialistChange = (e) => {
     const value = e.target.value;
     setSpecialist(value);
     if (value === 'Select a specialist') {
       setSpecialistError('Please select a specialist.');
+      setSpecialistGreenText('')
     } else {
       setSpecialistError('');
+      setSpecialistGreenText('Du har valt en specialist')
     }
 };
 
 const handleSubmit = (e) => {
-  e.preventDefault();
-  if (!specialist) {
-    setSpecialistError('Please select a specialist');
-    return;
-  }
-    
-if (fullNameError || emailError || !fullName || !email) {
-  alert('Please correct the errors in the form.');
-  return; 
-}
+  e.preventDefault()
 
-Swal.fire('Din tid är bokad!', 'Vi kommer ringa dig fast vi inte har ditt nummer', 'success');
+    if (!fullNameError && !emailError && !specialistError)
+      fetch('https://win24-assignment.azurewebsites.net/api/forms/contact', {
+    method : 'POST',
+      headers: {
+        'Content-Type' : 'application/json'
+      },
+      body: JSON.stringify({
+        fullName, email, specialist})
+      })
+      .then(response => { 
+        console.log('Response status', response.status); 
+        // return response.text();}) den verkar vara tom, går ej men json då
+        if (response.status === 200) {
+          Swal.fire('Success!', 'Your form has been submitted successfully!', 'success');
+        } else {
+          // Hantera andra statuskoder
+          Swal.fire('Oops!', 'There was a problem submitting the form.', 'error');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        Swal.fire('Error', 'An unexpected error occurred.', 'error');
+      });
+
+    
 };
 
   return (
@@ -103,6 +128,7 @@ Swal.fire('Din tid är bokad!', 'Vi kommer ringa dig fast vi inte har ditt numme
             onChange={handleFullNameChange}
             placeholder="Please Enter You Full name" />
             {fullNameError && <p className="form-field-error">{fullNameError}</p>}
+            {fullNameGreenText && <p className="form-field-greenText">{fullNameGreenText}</p>}
           </div>
 
           <div className="form-field">
@@ -115,6 +141,7 @@ Swal.fire('Din tid är bokad!', 'Vi kommer ringa dig fast vi inte har ditt numme
             onChange={handleEmailChange}
             placeholder="Please enter your email adress" />
             {emailError && <p className="form-field-error">{emailError}</p>}
+            {emailGreenText && <p className="form-field-greenText">{emailGreenText}</p>}
           </div>
 
           <div className="form-field">
@@ -125,15 +152,17 @@ Swal.fire('Din tid är bokad!', 'Vi kommer ringa dig fast vi inte har ditt numme
             value={specialist}
             onChange={handleSpecialistChange}
             >
-              <option value="">Select a specialist</option>
+              <option value="Select a specialist">Select a specialist</option>
               <option value="specialist-1">Select a specialist 1</option>
               <option value="specialist-2">Select a specialist 2</option>
               <option value="specialist-3">Select a specialist 3</option>
             </select>
               {specialistError && <p className="form-field-error">{specialistError}</p>}
+              {specialistGreenText && <p className="form-field-greenText">{specialistGreenText}</p>}
+
           </div>
 
-          <button type="submit" className=" submit-button"><span>Make an appointment</span></button>
+          <button type="submit" className="submit-button"><span>Make an appointment</span></button>
         </form>
     </div>
       <div className="contact-options">
