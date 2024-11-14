@@ -29,11 +29,11 @@ const Contact = () => {
     setFullName(value);
     const regex = /^[a-zA-Z]+(?: [a-zA-Z]+)+$/;
     if (!regex.test(value)) {
-      setFullNameError('Please enter a valid full name.');
+      setFullNameError('Please enter a valid full name. (e.g., Anders Andersson)');
       setFullNameGreenText('')
     } else {
       setFullNameError('');
-      setFullNameGreenText('snyggt')
+      setFullNameGreenText('You have entered a valid name')
     }
   };
 
@@ -47,10 +47,10 @@ const Contact = () => {
     setEmail(value);
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if(!regex.test(value)) {
-      setEmailError('Please enter a valid email:');
+      setEmailError('Please enter a valid email: (e.g., email@example.com)');
       setEmailGreenText('');
     } else { setEmailError('');
-          setEmailGreenText('snyggt');
+          setEmailGreenText('You have entered a valid email');
   }
 }
 
@@ -61,7 +61,7 @@ const Contact = () => {
     const handleSpecialistChange = (e) => {
     const value = e.target.value;
     setSpecialist(value);
-    if (value === 'Select a specialist') {
+    if (value === 'Select A Specialist') {
       setSpecialistError('Please select a specialist.');
       setSpecialistGreenText('')
     } else {
@@ -69,6 +69,7 @@ const Contact = () => {
       setSpecialistGreenText('Du har valt en specialist')
     }
 };
+const [contactServer, setContactServer] = useState()
 
 const handleSubmit = (e) => {
   e.preventDefault()
@@ -85,20 +86,28 @@ const handleSubmit = (e) => {
       .then(response => { 
         console.log('Response status', response.status); 
         // return response.text();}) den verkar vara tom, går ej men json då
-        if (response.status === 200) {
-          Swal.fire('Success!', 'Your form has been submitted successfully!', 'success');
+        if (response.ok) {  // Kontrollerar om statusen är 200-299 istället för att kolla om den är === 200
+          setContactServer('Your form has been successfully submitted!');
+          setFullName('');
+          setEmail('');
+          setSpecialist('');
+          setFullNameError('');
+          setEmailError('');
+          setSpecialistError('');
+          setFullNameGreenText('');
+          setEmailGreenText('');
+          setSpecialistGreenText('');
         } else {
-          // Hantera andra statuskoder
-          Swal.fire('Oops!', 'There was a problem submitting the form.', 'error');
+          setContactServer('There was an issue submitting your form. Please try again. You need to Enter your first and last name. your email adress and select one of out specialists');
         }
       })
       .catch(error => {
         console.error('Error:', error);
-        Swal.fire('Error', 'An unexpected error occurred.', 'error');
+        setContactServer('An unexpected error occurred. Please try again.');
       });
+    }
 
     
-};
 
   return (
     <>
@@ -126,7 +135,7 @@ const handleSubmit = (e) => {
             name="full-name" 
             value={fullName}
             onChange={handleFullNameChange}
-            placeholder="Please Enter You Full name" />
+            placeholder="Please Enter Your Full Name" />
             {fullNameError && <p className="form-field-error">{fullNameError}</p>}
             {fullNameGreenText && <p className="form-field-greenText">{fullNameGreenText}</p>}
           </div>
@@ -139,7 +148,7 @@ const handleSubmit = (e) => {
             name="email"
             value={email} 
             onChange={handleEmailChange}
-            placeholder="Please enter your email adress" />
+            placeholder="Please Enter Your Email Adress" />
             {emailError && <p className="form-field-error">{emailError}</p>}
             {emailGreenText && <p className="form-field-greenText">{emailGreenText}</p>}
           </div>
@@ -152,19 +161,26 @@ const handleSubmit = (e) => {
             value={specialist}
             onChange={handleSpecialistChange}
             >
-              <option value="Select a specialist">Select a specialist</option>
-              <option value="specialist-1">Select a specialist 1</option>
-              <option value="specialist-2">Select a specialist 2</option>
-              <option value="specialist-3">Select a specialist 3</option>
+              <option value="Select A Specialist">Select A Specialist</option>
+              <option value="specialist-1">Select specialist Hans</option>
+              <option value="specialist-2">Select specialist Therése</option>
+              <option value="specialist-3">Select specialist Joakim</option>
             </select>
               {specialistError && <p className="form-field-error">{specialistError}</p>}
               {specialistGreenText && <p className="form-field-greenText">{specialistGreenText}</p>}
 
           </div>
 
-          <button type="submit" className="submit-button"><span>Make an appointment</span></button>
+            <div className="form-footer">
+            {contactServer && (
+            <p className="contact-server-message">{contactServer}</p>
+            )}
+            <button type="submit" className="submit-button"><span>Make an appointment</span></button>
+            </div>
+
         </form>
     </div>
+
       <div className="contact-options">
         
         <div className="contact-card">

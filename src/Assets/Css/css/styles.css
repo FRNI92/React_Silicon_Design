@@ -1456,6 +1456,9 @@ footer .footer-container {
     font-size: .9rem;
     margin-top: .25rem;
   }
+  .contact-server-message {
+    color: var(--clr-system-info);;
+  }
 .online-consultation:focus-within {
     box-shadow: 0 0 10px var(--form-box-shadow);
 }  
@@ -1492,7 +1495,7 @@ footer .footer-container {
   }
   
   .submit-button {
-    margin-top: 13rem;
+    margin-top: 10rem;
     width: 100%;
     padding: 12px;
     border-radius: 4px;
