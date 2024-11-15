@@ -1,7 +1,7 @@
 
 import Icons1 from '../Assets/Bildersilicon/bildersida7/bildersida7.svg'
 import Icons2 from '../Assets/Bildersilicon/bildersida7/mailsymbol.svg'
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -14,6 +14,14 @@ const SubscribeContainer = () => {
   const [success, setSuccess] = useState('');
   const [subscriptionText, setSubscriptionText] = useState('')
   
+useEffect(() => {
+  first
+
+  return () => {
+    second
+  }
+}, [third])
+
 
   const validateEmail = (email) => {
     const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
@@ -94,17 +102,18 @@ const SubscribeContainer = () => {
 
 
           <div className="form-button-wrapper">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} noValidate>
               <div className="input-wrapper mb1">
                 <img className="input-icon" src={Icons2} alt="small white envelope" />
                 <input 
-                type="text"// kör ma email här får man standarderror
+                type="email"
                 value={email} 
                 onChange={handleEmailChange}
                 className="form-input" 
                 id="email" 
                 placeholder="Your Email"
-                minLength="1" />
+                minLength="1"
+                 />
             <div>
               <button
               type="submit"
