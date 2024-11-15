@@ -27,7 +27,7 @@ const Contact = () => {
   const handleFullNameChange = (e) => {
     const value = e.target.value;
     setFullName(value);
-    const regex = /^[a-zA-Z]+(?: [a-zA-Z]+)+$/;
+    const regex = /^[a-zA-ZÀ-Öà-ö]+(?:[-'´ ][a-zA-ZÀ-Öà-ö]+)*$/;;
     if (!regex.test(value)) {
       setFullNameError('Please enter a valid full name. (e.g., Anders Andersson)');
       setFullNameGreenText('')
@@ -66,7 +66,7 @@ const Contact = () => {
       setSpecialistGreenText('')
     } else {
       setSpecialistError('');
-      setSpecialistGreenText('Du har valt en specialist')
+      setSpecialistGreenText('You have selected a specialist')
     }
 };
 const [contactServer, setContactServer] = useState()
@@ -74,7 +74,14 @@ const [contactServer, setContactServer] = useState()
 const handleSubmit = (e) => {
   e.preventDefault()
 
-    if (!fullNameError && !emailError && !specialistError)
+    if (!fullName || !email || !specialist || fullNameError || emailError || specialistError){
+      setContactServer ('There was an issue submitting your form. You need to Enter your first and last name. your email adress and select one of our specialists. Then click Make an appointment');
+      setTimeout(() => {
+        setContactServer('');
+      }, 10000);
+      return;
+    }
+
       fetch('https://win24-assignment.azurewebsites.net/api/forms/contact', {
     method : 'POST',
       headers: {
@@ -88,6 +95,9 @@ const handleSubmit = (e) => {
         // return response.text();}) den verkar vara tom, går ej men json då
         if (response.ok) {  // Kontrollerar om statusen är 200-299 istället för att kolla om den är === 200
           setContactServer('Your form has been successfully submitted!');
+          setTimeout(() => {
+            setContactServer('');
+          }, 4000);
           setFullName('');
           setEmail('');
           setSpecialist('');
@@ -98,7 +108,7 @@ const handleSubmit = (e) => {
           setEmailGreenText('');
           setSpecialistGreenText('');
         } else {
-          setContactServer('There was an issue submitting your form. Please try again. You need to Enter your first and last name. your email adress and select one of out specialists');
+          setContactServer('There was an issue submitting your form. You need to Enter your first and last name. your email adress and select one of our specialists. Then click Make an appointment');
         }
       })
       .catch(error => {

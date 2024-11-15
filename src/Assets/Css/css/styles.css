@@ -7,7 +7,7 @@
     --form-box-shadow: hsl(261, 50%, 50%);
     --boxshadow: rgba(196, 26, 26, 0.1);
     --consultation-background:hsl(0, 0%, 100%);
-    --clr-button-hover-purple: #9563f1;
+    --clr-button-hover-purple: #6a21fc;
     /* grayscale */
     --clr-gray900: #0B0F19;
     --clr-gray800: #33354D;
@@ -843,9 +843,9 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
 .client-section h2 {
     color: var(--clr-client);
     max-width: 20rem;
-    font-size: 2.5rem; /* Gör texten större */
+    font-size: 2.5rem; 
     text-wrap: wrap;
-    margin-right: 4rem; /* Lägger till ett mellanrum till vänster */
+    margin-right: 4rem; 
 }
 .review-container {
     display:flex;
@@ -857,18 +857,18 @@ https://www.youtube.com/watch?v=Fwp_gNbbr7Q&t=2s&ab_channel=EPNSverigeAB-Utbildn
 .review-card {
     display: flex;
     position: relative;
-    background-color: var(--review-card-background);  /*styr kortets färg*/
+    background-color: var(--review-card-background); 
     color: var(--review-card-text);
     border-radius: 8px;
     padding: 1.5rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 350px; /* Controls the width of each card */
+    max-width: 350px; 
   }
 
   .quotes-image {
     position:absolute;
-    top: -40px; /* Justera detta för att få rätt placering */
-    left: 10px; /* Justera så att den är centrerad eller enligt din design */
+    top: -40px; 
+    left: 10px; 
     padding: 8px;
 
   }
@@ -1173,6 +1173,10 @@ hur man fick javascriptet att fungera. */
     text-decoration: none;
     border: none;
     outline:none;
+    &:focus {
+        outline:none;
+        box-shadow: 0 0 5px var(--clr-brand-primary-purple);
+    }
 
  
 }
@@ -1243,7 +1247,11 @@ hur man fick javascriptet att fungera. */
     visibility: visible;
     display:block
   }
-
+.subscription-valid-text{
+    margin-top: 1rem;
+    margin-left: 3rem;
+    color: var(--clr-system-info);
+}
   @media (max-width: 768px) {
     .subscribe-container {
         flex-direction: column; 
@@ -1337,14 +1345,14 @@ footer .footer-container {
 }
 @media (min-width: 769px) and (max-width: 1024px) {
     .text-container h1 {
-        width: 100vw; /* Gör så att rubriken tar hela viewportens bredd */
-        text-align: center; /* Valfritt: justera textinriktningen */
-        margin: 0; /* Ta bort eventuell margin */
-        padding: 0 1rem; /* Valfritt: ger lite padding för bättre visuell balans */
+        width: 100vw;
+        text-align: center; 
+        margin: 0; 
+        padding: 0 1rem; 
     }
 
     .text-container {
-        align-items: center; /* Justerar andra element i text-container efter behov */
+        align-items: center;
     }
     .image-container {
         display: none;
@@ -1358,11 +1366,11 @@ footer .footer-container {
         display:none
     }
     .btn-primary {
-        display: none; /* Döljer sign-in-knappen */
+        display: none; 
       }
     
       .hamburger {
-        display: block; /* Visar hamburgermenyn */
+        display: block; 
         cursor: pointer;
         font-size: 1.5rem;
         padding: 0.5rem;
@@ -1376,11 +1384,11 @@ footer .footer-container {
         display:none
     }
     .btn-primary {
-        display: none; /* Döljer sign-in-knappen */
+        display: none;
       }
     
       .hamburger {
-        display: block; /* Visar hamburgermenyn */
+        display: block;
         cursor: pointer;
         font-size: 1.5rem;
         padding: 0.5rem;
@@ -1457,7 +1465,7 @@ footer .footer-container {
     margin-top: .25rem;
   }
   .contact-server-message {
-    color: var(--clr-system-info);;
+    color: var(--clr-system-info);
   }
 .online-consultation:focus-within {
     box-shadow: 0 0 10px var(--form-box-shadow);
@@ -1501,9 +1509,25 @@ footer .footer-container {
     border-radius: 4px;
     cursor: pointer;
     border: none;
-    box-shadow: 0px 0px 5px rgb(49, 46, 46);
+    /* outline: none; */
+    /* box-shadow: 0px 0px 5px rgb(49, 46, 46); */
     background-color: var(--clr-brand-primary-purple);
     color: var(--clr-background-white);
+    &:focus {
+        outline: none;  
+        box-shadow: 0 0 10px var(--clr-brand-primary-purple);
+        transform: scale(1.02);
+        font-weight: bold;
+        letter-spacing: 0.5px;
+    }
+    &:hover {
+        background-color: var(--clr-brand-hover-purple);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transform: translateY(-2px);
+        font-weight: bold;
+        letter-spacing: 0.5px;
+    }
+
   }
   .submit-button span {
     font-family: "manrope";

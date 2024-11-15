@@ -12,15 +12,18 @@ const SubscribeContainer = () => {
   const [email, setEmail] = useState('')
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('');
+  const [subscriptionText, setSubscriptionText] = useState('')
+  
 
   const validateEmail = (email) => {
     const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
     const isValid = emailReg.test(email)
     if (!isValid) {
       setError('Please enter your email address.');
+      setSubscriptionText('')
     } else {
       setError(''); // Rensa felmeddelande om e-posten är giltig
-      setSuccess('Email is valid!'); // Sätt framgångsmeddelandet
+      setSuccess('Email is valid!'); // Sätt grön text
     }
   
     return isValid;
@@ -35,7 +38,7 @@ const SubscribeContainer = () => {
       setError(''); // Rensa felmeddelande om fältet är tomt
       setSuccess('') //tar bort gröna texten om det är tomt
     } else if (!validateEmail(inputEmail)) {
-      setError('Please enter a valid email adress. example@email.domain');
+      setError('Please enter a valid email adress.e.g., email@example.com)');
       setSuccess(''); //ta bort gröna texten om det är tomt
     } 
     else {
@@ -61,6 +64,11 @@ const SubscribeContainer = () => {
       .then(response => {
         if (response.status === 200) {
           console.log('Request was successful! Status:', response.status);
+          setSuccess('')
+          setSubscriptionText('Thank You For Subscribing!')
+          setTimeout(() => {
+            setSubscriptionText('');
+          }, 4000);
           toast.success('You have successfully subscribed');
         }
       })
@@ -90,7 +98,7 @@ const SubscribeContainer = () => {
               <div className="input-wrapper mb1">
                 <img className="input-icon" src={Icons2} alt="small white envelope" />
                 <input 
-                type="text"
+                type="text"// kör ma email här får man standarderror
                 value={email} 
                 onChange={handleEmailChange}
                 className="form-input" 
@@ -107,6 +115,7 @@ const SubscribeContainer = () => {
               </div>
               <p className={`error-message ${error ? 'visible' : ''}`}>{error}</p>
               <p className={`success-message ${success ? 'visible' : ''}`}>{success}</p>
+              <p className={`subscription-valid-text ${subscriptionText ? 'visible' : ''}`}>{subscriptionText}</p>
               <ToastContainer />
             </form>
 
