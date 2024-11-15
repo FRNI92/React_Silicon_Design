@@ -14,13 +14,6 @@ const SubscribeContainer = () => {
   const [success, setSuccess] = useState('');
   const [subscriptionText, setSubscriptionText] = useState('')
   
-useEffect(() => {
-  first
-
-  return () => {
-    second
-  }
-}, [third])
 
 
   const validateEmail = (email) => {

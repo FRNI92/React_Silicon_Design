@@ -11,9 +11,9 @@ const HeaderMainContainer = ({ isDarkMode, setIsDarkMode }) => {
         <BrowserRouter>
         <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
         <Routes>
-          <Route path="/contact" element={<Contact />} />
           <Route path="/" element={<Main isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/" element={<Home />} />
         </Routes>
         </BrowserRouter>
     </>
